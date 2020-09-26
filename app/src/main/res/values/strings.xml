@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">NanumFest2020</string>
+
+    <string name="splash_phrase">2020 나눔축제 채팅 앱 만들기 클래스</string>
+    <string name="splash_copyright">© 2020. EDCAN. all rights reserved.</string>
+
+    <string name="on_board_1_title">언택트 시대,</string>
+    <string name="on_board_1_sub">채팅으로 소통하세요</string>
+    <string name="on_board_1_text">선린인터넷고등학교 나눔축제와 함께,
+        \n실시간으로 소통할 수 있는 채팅 앱을 만들어봐요!</string>
+
+    <string name="on_board_2_title">첫번째 단계</string>
+    <string name="on_board_2_sub">로그인 &amp; 회원가입</string>
+    <string name="on_board_2_text">Firebase Authentication을 사용하여
+        \n온라인 로그인 및 회원가입 기능을 제작해 봅니다.</string>
+
+    <string name="on_board_3_title">두번째 단계</string>
+    <string name="on_board_3_sub">실시간 채팅하기</string>
+    <string name="on_board_3_text">Cloud Firestore와 Storage를 사용하여
+        \n실시간 단체 채팅 기능을 제작해 봅니다.</string>
+
+    <string name="on_board_4_title">그럼 이제,</string>
+    <string name="on_board_4_sub">시작해 볼까요?</string>
+    <string name="on_board_4_text">2020 나눔축제 ✕ EDCAN과 함께하는
+        \n나만의 채팅 앱 만들기 클래스, 지금 시작합니다!</string>
+
+    <string name="on_board_skip">건너뛰기</string>
+
+</resources>

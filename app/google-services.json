@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "38067505627",
+    "firebase_url": "https://nanumfest2020.firebaseio.com",
+    "project_id": "nanumfest2020",
+    "storage_bucket": "nanumfest2020.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:38067505627:android:9d75fb9ad7ecfb86c63ffe",
+        "android_client_info": {
+          "package_name": "com.david0926.nanumfest2020"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "38067505627-g90hg2m15agqd806p4i4at74n1fqq8sh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBSjc4qDLM3bsFXlsZ2GXyqYPg7IHm7Cs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "38067505627-g90hg2m15agqd806p4i4at74n1fqq8sh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
