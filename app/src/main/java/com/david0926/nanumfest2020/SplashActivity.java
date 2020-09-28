@@ -25,7 +25,7 @@ public class SplashActivity extends AppCompatActivity {
                     .getBoolean(this, "is_on_board_shown", false);
 
             // TODO: debug - remove this line to show welcome & onboard screen once
-            //isLandingShown = false;
+            // isLandingShown = false;
 
             if (isLandingShown) {
                 FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();

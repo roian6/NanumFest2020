@@ -1,0 +1,51 @@
+<resources>
+    <string name="app_name">NanumFest2020</string>
+
+    <string name="splash_phrase">2020 SSF chat app develop class</string>
+    <string name="splash_copyright">© 2020. EDCAN. all rights reserved.</string>
+
+    <string name="on_board_1_title">No contact,</string>
+    <string name="on_board_1_sub">Use your chat app</string>
+    <string name="on_board_1_text">With Sunrin 2020 SSF,
+        \nLet\'s make real-time chatting app!</string>
+
+    <string name="on_board_2_title">Step One</string>
+    <string name="on_board_2_sub">Login &amp; Register</string>
+    <string name="on_board_2_text">Develop login &amp; register feature,
+        \nusing Firebase Authentication.
+        </string>
+
+    <string name="on_board_3_title">Step Two</string>
+    <string name="on_board_3_sub">Real-time Chat</string>
+    <string name="on_board_3_text">Develop realtime multi-chatting feature
+        \nusing Cloud Firestore and Storage.
+        </string>
+
+    <string name="on_board_4_title">So then,</string>
+    <string name="on_board_4_sub">Ready to develop?</string>
+    <string name="on_board_4_text">2020 SSF ✕ EDCAN
+        \nChat app class, Let\'s get started!</string>
+
+    <string name="on_board_skip">Skip</string>
+
+    <string name="error_empty_field">Please fill all required fields.</string>
+    <string name="error_password_invalid">Please enter a valid password.</string>
+    <string name="error_no_user_data">User data does not exist.</string>
+    <string name="error_no_user_account">User account does not exist.</string>
+    <string name="error_email_invalid">Please enter a valid email address.</string>
+    <string name="error_password_invalid_case">Please enter a valid password. (6~24 letters, 0–9 + A-z)</string>
+    <string name="error_password_different">Please enter same password in both fields.</string>
+    <string name="error_no_internet">Please check your internet condition.</string>
+    <string name="login_title">Hi there!</string>
+    <string name="login_text">Sign in, and go forth to chat!</string>
+    <string name="login_email">Email</string>
+    <string name="login_pw">Password</string>
+    <string name="login_login">Sign in</string>
+    <string name="login_text_register">Don\'t have account yet? Sign up here.</string>
+    <string name="login_register">Sign up</string>
+    <string name="login_forgot_pw">Forgot password?</string>
+    <string name="login_loading">Signing in…</string>
+    <string name="login_success">Successfully signed in!</string>
+    <string name="on_board_start">Get Started</string>
+
+</resources>

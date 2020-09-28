@@ -1,6 +1,5 @@
-package com.david0926.nanumfest2020.util.dialog;
+package com.david0926.nanumfest2020.dialog;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
@@ -12,32 +11,43 @@ import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.airbnb.lottie.LottieComposition;
+import com.airbnb.lottie.LottieCompositionFactory;
+import com.airbnb.lottie.LottieDrawable;
 import com.david0926.nanumfest2020.R;
 import com.david0926.nanumfest2020.databinding.DialogLoadingBinding;
 
 public class LoadingDialog extends Dialog {
 
-    public LoadingDialog(@NonNull Context context) {
-        super(context);
-        mContext = context;
-    }
-
     private Context mContext;
-
-    private OnSuccessListener onSuccessListener;
     private String msg = "";
 
     private DialogLoadingBinding binding;
     private LoadingDialogViewModel viewModel;
 
+    private OnAnimationFinishListener onAnimationFinishListener;
+
+    public interface OnAnimationFinishListener {
+        void onAnimationFinish();
+    }
+
+    public void setOnAnimationFinishListener(OnAnimationFinishListener listener) {
+        onAnimationFinishListener = listener;
+    }
+
+    public LoadingDialog(@NonNull Context context) {
+        super(context);
+        super.setCancelable(false);
+        mContext = context;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        super.setCancelable(false);
-
         binding = DataBindingUtil.inflate(getLayoutInflater(), R.layout.dialog_loading, null, false);
-        binding.setLifecycleOwner((FragmentActivity) mContext);
         setContentView(binding.getRoot());
+
+        binding.setLifecycleOwner((FragmentActivity) mContext);
 
         ViewModelProvider.NewInstanceFactory f = new ViewModelProvider.NewInstanceFactory();
         viewModel = f.create(LoadingDialogViewModel.class);
@@ -45,7 +55,6 @@ public class LoadingDialog extends Dialog {
         binding.setViewModel(viewModel);
 
         viewModel.msg.setValue(msg);
-
     }
 
     public void setMessage(String msg) {
@@ -53,26 +62,20 @@ public class LoadingDialog extends Dialog {
         else this.msg = msg;
     }
 
-    public void finish(boolean success, String message) {
-
-        //TODO: MVVM
-        viewModel.msg.setValue(message);
-        binding.lottieLoading.setRepeatCount(0);
-        binding.lottieLoading.setAnimation(R.raw.success);
-        binding.lottieLoading.playAnimation();
-
-        new Handler(Looper.getMainLooper()).postDelayed(() -> {
-            onSuccessListener.onSuccess();
+    public void finish(boolean success) {
+        if (!success) {
             cancel();
-        }, 1000 + binding.lottieLoading.getDuration());
-    }
+            return;
+        }
 
-    public interface OnSuccessListener {
-        void onSuccess();
-    }
+        viewModel.lottieLoop.setValue(false);
+        viewModel.lottieAnimation.setValue(R.raw.success);
 
-    public void setOnSuccessListener(OnSuccessListener listener) {
-        onSuccessListener = listener;
+        //TODO: hardcoded delay - replace with lottie duration
+        new Handler(Looper.getMainLooper()).postDelayed(() -> {
+            onAnimationFinishListener.onAnimationFinish();
+            cancel();
+        }, 1500);
     }
 
 

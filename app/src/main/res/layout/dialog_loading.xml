@@ -6,14 +6,14 @@
 
         <variable
             name="viewModel"
-            type="com.david0926.nanumfest2020.util.dialog.LoadingDialogViewModel" />
+            type="com.david0926.nanumfest2020.dialog.LoadingDialogViewModel" />
 
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/round_box"
+        android:background="@color/backgroundColorPrimary"
         android:paddingHorizontal="36dp"
         android:paddingVertical="16dp">
 
@@ -21,14 +21,13 @@
             android:id="@+id/lottie_loading"
             android:layout_width="96dp"
             android:layout_height="96dp"
+            app:bindMyLottieAnimation="@{viewModel.lottieAnimation}"
+            app:bindMyLottieLoop="@{viewModel.lottieLoop}"
             app:layout_constraintBottom_toTopOf="@id/textView3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_chainStyle="packed"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            app:lottie_rawRes="@raw/loading" />
+            app:layout_constraintVertical_chainStyle="packed" />
 
         <TextView
             android:id="@+id/textView3"
