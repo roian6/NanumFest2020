@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.david0926.nanumfest2020.login.LoginActivity;
 import com.david0926.nanumfest2020.onboard.OnBoardActivity;
+import com.david0926.nanumfest2020.register.RegisterActivity;
 import com.david0926.nanumfest2020.util.SharedPreferenceUtil;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -21,20 +22,27 @@ public class SplashActivity extends AppCompatActivity {
 
         new Handler(Looper.getMainLooper()).postDelayed(() -> {
 
-            boolean isLandingShown = SharedPreferenceUtil
-                    .getBoolean(this, "is_on_board_shown", false);
+            String userState = SharedPreferenceUtil.getString(this, "user_state", "on_board");
 
-            // TODO: debug - remove this line to show welcome & onboard screen once
-            // isLandingShown = false;
+            // TODO: debug - remove this line to show onboard screen once
+            // userState = "on_board";
 
-            if (isLandingShown) {
-                FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
-                startActivity(new Intent(SplashActivity.this,
-                        firebaseAuth.getCurrentUser() == null ?
-                                LoginActivity.class : MainActivity.class));
-            } else startActivity(new Intent(SplashActivity.this, OnBoardActivity.class));
-
-
+            // TODO: replace with enum
+            switch (userState) {
+                case "on_board":
+                    startActivity(new Intent(SplashActivity.this, OnBoardActivity.class));
+                    break;
+                case "upload_profile":
+                    Intent intent = new Intent(SplashActivity.this, RegisterActivity.class);
+                    intent.putExtra("register_page", 2);
+                    startActivity(new Intent(SplashActivity.this, LoginActivity.class));
+                    startActivity(intent);
+                    break;
+                default:
+                    startActivity(new Intent(SplashActivity.this,
+                            FirebaseAuth.getInstance().getCurrentUser() == null ?
+                                    LoginActivity.class : MainActivity.class));
+            }
             finish();
         }, 2000);
     }

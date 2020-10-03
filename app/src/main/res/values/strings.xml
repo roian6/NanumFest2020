@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">나눔축제2020</string>
+    <string name="app_name">SSF2020</string>
 
     <string name="splash_phrase">2020 나눔축제 채팅 앱 만들기 클래스</string>
     <string name="splash_copyright">© 2020. EDCAN. all rights reserved.</string>
@@ -30,7 +30,10 @@
     <string name="error_empty_field">빈칸을 모두 채워주세요.</string>
     <string name="error_password_invalid">비밀번호가 올바르지 않습니다.</string>
     <string name="error_no_user_data">유저 데이터가 존재하지 않습니다.</string>
+    <string name="error_user_data_upload_failed">유저 데이터 업로드에 실패했습니다.</string>
+    <string name="error_user_create_failed">유저 회원가입에 실패했습니다.</string>
     <string name="error_no_user_account">존재하지 않는 계정입니다.</string>
+    <string name="error_user_account_taken">이미 사용중인 이메일입니다.</string>
     <string name="error_email_invalid">올바른 이메일 주소를 입력해 주세요.</string>
     <string name="error_password_invalid_case">올바른 형식의 비밀번호를 입력해 주세요. (6~24자, 알파벳 대소문자+숫자)</string>
     <string name="error_password_different">비밀번호 확인이 일치하지 않습니다.</string>
@@ -58,5 +61,11 @@
     <string name="register_text_profile_introduce">프로필 사진과 한줄 소개를 \n등록해주세요</string>
     <string name="register_introduce">한줄 소개 (20자 이내)</string>
     <string name="register_finish">완료</string>
+    <string name="register_email_check">이메일 중복 확인중…</string>
+    <string name="register_email_check_success">확인 성공!</string>
+    <string name="register_signing">회원가입 진행중…</string>
+    <string name="register_success">회원가입 성공!</string>
+    <string name="reigster_skip_profile">프로필 설정을 건너뛸까요?</string>
+    <string name="register_cancel">취소</string>
 
 </resources>

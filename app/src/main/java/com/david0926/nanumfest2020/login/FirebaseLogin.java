@@ -4,8 +4,8 @@ import android.content.res.Resources;
 
 import com.david0926.nanumfest2020.R;
 import com.david0926.nanumfest2020.model.UserModel;
+import com.david0926.nanumfest2020.util.FirebaseErrorUtil;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.FirebaseNetworkException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.SignInMethodQueryResult;
@@ -26,7 +26,7 @@ public class FirebaseLogin {
     }
 
     public interface OnLoginFailedListener {
-        void onLoginFailed(String msg);
+        void onLoginFailed(String errorMsg);
     }
 
     public static void login(String email, String pw, Resources res, OnLoginSuccessListener s, OnLoginFailedListener e) {
@@ -62,7 +62,7 @@ public class FirebaseLogin {
                             mResources.getString(R.string.error_no_user_account));
                 })
                 .addOnFailureListener(e -> onLoginFailedListener.onLoginFailed(
-                        getErrorString(e, R.string.error_no_user_account)));
+                        FirebaseErrorUtil.getErrorString(mResources, e, R.string.error_no_user_account)));
     }
 
     private static void getUserData(String document, OnSuccessListener<DocumentSnapshot> s) {
@@ -73,7 +73,7 @@ public class FirebaseLogin {
                 .get()
                 .addOnSuccessListener(s)
                 .addOnFailureListener(e -> onLoginFailedListener.onLoginFailed(
-                        getErrorString(e, R.string.error_no_user_data)));
+                        FirebaseErrorUtil.getErrorString(mResources, e, R.string.error_no_user_data)));
     }
 
     private static void signInWithEmail(String email, String pw, OnSuccessListener<AuthResult> s) {
@@ -82,11 +82,6 @@ public class FirebaseLogin {
                 .signInWithEmailAndPassword(email, pw)
                 .addOnSuccessListener(s)
                 .addOnFailureListener(e -> onLoginFailedListener.onLoginFailed(
-                        getErrorString(e, R.string.error_password_invalid)));
-    }
-
-    private static String getErrorString(Exception e, int id) {
-        return e instanceof FirebaseNetworkException ?
-                mResources.getString(R.string.error_no_internet) : mResources.getString(id);
+                        FirebaseErrorUtil.getErrorString(mResources, e, R.string.error_password_invalid)));
     }
 }

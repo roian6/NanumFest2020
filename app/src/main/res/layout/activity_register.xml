@@ -46,6 +46,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/notosanskr_bold"
+                android:onClick="@{()->activity.finishRegister()}"
                 android:paddingHorizontal="24dp"
                 android:paddingVertical="16dp"
                 android:text="@string/register_skip"
@@ -58,7 +59,6 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-
         <FrameLayout
             android:id="@+id/frameLayout"
             android:layout_width="match_parent"
@@ -66,7 +66,7 @@
             android:layout_marginBottom="8dp"
             app:bindFragment="@{viewModel.fragments.get(viewModel.currentPage)}"
             app:bindFragmentAnimDirection="@{viewModel.currentDirection}"
-            app:layout_constraintBottom_toTopOf="@+id/button3"
+            app:layout_constraintBottom_toTopOf="@+id/textView4"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
         <com.google.android.material.tabs.TabLayout
@@ -102,6 +102,22 @@
                 android:layout_height="wrap_content" />
 
         </com.google.android.material.tabs.TabLayout>
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/notosanskr_bold"
+            android:textColor="@color/materialRed"
+            android:textSize="14sp"
+            android:visibility="invisible"
+            app:bindErrorMsg="@{viewModel.errorMsg}"
+            app:bindInvisibility="@{viewModel.errorMsg.length() &gt; 0}"
+            app:layout_constraintBottom_toTopOf="@+id/button3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintVertical_chainStyle="spread_inside" />
 
         <Button
             android:id="@+id/button3"

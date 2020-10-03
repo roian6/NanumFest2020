@@ -39,7 +39,7 @@ public class OnBoardActivity extends AppCompatActivity {
     }
 
     public void finishOnBoard() {
-        SharedPreferenceUtil.put(this, "is_on_board_shown", true);
+        SharedPreferenceUtil.put(this, "user_state", "login");
         startActivity(new Intent(OnBoardActivity.this, LoginActivity.class));
         finish();
     }

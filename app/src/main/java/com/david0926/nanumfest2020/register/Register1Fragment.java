@@ -33,7 +33,10 @@ public class Register1Fragment extends Fragment {
         binding.setViewModel(viewModel);
 
         viewModel.name.observe(getViewLifecycleOwner(), s -> checkNextPageEnabled());
-        viewModel.email.observe(getViewLifecycleOwner(), s -> checkNextPageEnabled());
+        viewModel.email.observe(getViewLifecycleOwner(), s -> {
+            checkNextPageEnabled();
+            viewModel.errorMsg.setValue("");
+        });
 
         return binding.getRoot();
     }

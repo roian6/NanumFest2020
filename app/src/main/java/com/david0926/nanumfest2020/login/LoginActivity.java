@@ -35,18 +35,15 @@ public class LoginActivity extends AppCompatActivity {
         KeyboardUtil.hideKeyboard(this);
 
         LoadingDialog dialog = new LoadingDialog(this);
-        dialog.setMessage(getString(R.string.login_loading));
-        dialog.show();
+        dialog.setMessage(getString(R.string.login_loading)).show();
 
         FirebaseLogin.login(viewModel.email.getValue(), viewModel.pw.getValue(), getResources(),
                 user -> {
                     UserCache.setUser(this, user);
-                    dialog.setMessage(getString(R.string.login_success));
-                    dialog.finish(true);
-                    dialog.setOnAnimationFinishListener(() -> {
+                    dialog.setMessage(getString(R.string.login_success)).setOnAnimationFinishListener(() -> {
                         startActivity(new Intent(LoginActivity.this, MainActivity.class));
                         finish();
-                    });
+                    }).finish(true);
                 },
                 errorMsg -> {
                     dialog.finish(false);

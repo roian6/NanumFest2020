@@ -71,6 +71,7 @@
                 android:layout_marginTop="36dp"
                 android:focusableInTouchMode="true"
                 android:hint="@string/register_introduce"
+                android:maxLength="20"
                 android:text="@={viewModel.introduce}"
                 android:textSize="16sp"
                 app:bindEditTextAutoFocus="@{true}"

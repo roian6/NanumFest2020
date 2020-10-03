@@ -27,15 +27,18 @@
         \nChat app class, Let\'s get started!</string>
 
     <string name="on_board_skip">Skip</string>
+    <string name="on_board_start">Get Started</string>
 
     <string name="error_empty_field">Please fill all required fields.</string>
     <string name="error_password_invalid">Please enter a valid password.</string>
     <string name="error_no_user_data">User data does not exist.</string>
     <string name="error_no_user_account">User account does not exist.</string>
+    <string name="error_user_account_taken">This email address is already taken.</string>
     <string name="error_email_invalid">Please enter a valid email address.</string>
     <string name="error_password_invalid_case">Please enter a valid password. (6~24 letters, 0–9 + A-z)</string>
     <string name="error_password_different">Please enter same password in both fields.</string>
     <string name="error_no_internet">Please check your internet condition.</string>
+
     <string name="login_title">Hi there!</string>
     <string name="login_text">Sign in, and go forth to chat!</string>
     <string name="login_email">Email</string>
@@ -46,7 +49,7 @@
     <string name="login_forgot_pw">Forgot password?</string>
     <string name="login_loading">Signing in…</string>
     <string name="login_success">Successfully signed in!</string>
-    <string name="on_board_start">Get Started</string>
+
     <string name="register_skip">Skip</string>
     <string name="register_next">Next</string>
     <string name="register_text_name_email">Let us know your \nname and email</string>
@@ -58,5 +61,13 @@
     <string name="register_text_profile_introduce">Upload your \nprofile and introduction</string>
     <string name="register_introduce">20-letters introduce yourself</string>
     <string name="register_finish">Finish</string>
+    <string name="error_user_data_upload_failed">Failed to upload user data.</string>
+    <string name="error_user_create_failed">Failed to sign up.</string>
+    <string name="register_email_check">Validating email…</string>
+    <string name="register_email_check_success">Email confirmed!</string>
+    <string name="register_signing">Creating user…</string>
+    <string name="register_success">Successed!</string>
+    <string name="reigster_skip_profile">Skip profile setting?</string>
+    <string name="register_cancel">Cancel</string>
 
 </resources>

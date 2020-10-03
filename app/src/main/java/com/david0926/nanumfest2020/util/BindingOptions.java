@@ -3,9 +3,11 @@ package com.david0926.nanumfest2020.util;
 import android.app.Activity;
 import android.content.Context;
 import android.view.View;
+import android.view.animation.AnimationUtils;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.core.content.ContextCompat;
 import androidx.databinding.BindingAdapter;
@@ -25,6 +27,14 @@ public class BindingOptions {
         v.setVisibility(b ? View.VISIBLE : View.INVISIBLE);
     }
 
+    @BindingAdapter("bindErrorMsg")
+    public static void bindErrorMsg(TextView t, String s) {
+        if (s == null) return;
+        t.setText(s);
+        if (s.isEmpty()) return;
+        t.startAnimation(AnimationUtils.loadAnimation(t.getContext(), R.anim.shake));
+    }
+
     @BindingAdapter("bindButtonEnabled")
     public static void bindButtonEnabled(Button b, boolean enabled) {
         b.setClickable(enabled);
@@ -42,7 +52,7 @@ public class BindingOptions {
         if (a == null) return;
 
         InputMethodManager imm = (InputMethodManager) a.getSystemService(Context.INPUT_METHOD_SERVICE);
-        if (imm != null) imm.showSoftInput(e, InputMethodManager.SHOW_IMPLICIT);
+        if (imm != null) imm.showSoftInput(e, InputMethodManager.SHOW_FORCED);
     }
 
 }

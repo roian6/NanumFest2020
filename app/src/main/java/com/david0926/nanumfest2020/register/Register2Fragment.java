@@ -14,6 +14,9 @@ import androidx.lifecycle.ViewModelProviders;
 import com.david0926.nanumfest2020.R;
 import com.david0926.nanumfest2020.databinding.FragmentRegister2Binding;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Register2Fragment extends Fragment {
 
     public static Register2Fragment newInstance() {
@@ -40,6 +43,14 @@ public class Register2Fragment extends Fragment {
 
     private void checkNextPageEnabled() {
         String pw = viewModel.pw.getValue();
-        viewModel.isNextEnabled.setValue(!pw.isEmpty() && viewModel.pwConfirm.getValue().equals(pw));
+        viewModel.isNextEnabled.setValue(isValidPw(pw) && viewModel.pwConfirm.getValue().equals(pw));
+    }
+
+    private boolean isValidPw(String target) {
+        //6~24 letters, 0~9 + A-z
+        Pattern p = Pattern.compile("(^.*(?=.{6,24})(?=.*[0-9])(?=.*[A-z]).*$)");
+        Matcher m = p.matcher(target);
+        //except korean letters
+        return m.find() && !target.matches(".*[ㄱ-ㅎㅏ-ㅣ가-힣]+.*");
     }
 }

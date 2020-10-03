@@ -17,14 +17,6 @@ public class LoginActivityViewModel extends ViewModel {
     public MutableLiveData<String> email = new MutableLiveData<>("");
     public MutableLiveData<String> pw = new MutableLiveData<>("");
 
-    @BindingAdapter("bindErrorMsg")
-    public static void bindErrorMsg(TextView t, String s) {
-        if (s == null) return;
-        t.setText(s);
-        if (s.isEmpty()) return;
-        t.startAnimation(AnimationUtils.loadAnimation(t.getContext(), R.anim.shake));
-    }
-
     public MutableLiveData<String> errorMsg = new MutableLiveData<>("");
 
     @BindingAdapter("bindTextWatcher")

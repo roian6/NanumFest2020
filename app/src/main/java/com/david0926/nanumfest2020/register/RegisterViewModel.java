@@ -1,5 +1,6 @@
 package com.david0926.nanumfest2020.register;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 
@@ -21,10 +22,9 @@ public class RegisterViewModel extends ViewModel {
     // Activity
 
     @BindingAdapter({"bindFragment", "bindFragmentAnimDirection"})
-    public static void bindFragmentWithAnim(FrameLayout frame, Fragment frag, AnimDirection dir) {
+    public static void bindFragment(FrameLayout frame, Fragment frag, AnimDirection dir) {
         FragmentActivity a = (FragmentActivity) frame.getContext();
         FragmentTransaction transaction = a.getSupportFragmentManager().beginTransaction();
-        transaction.replace(frame.getId(), frag);
 
         switch (dir) {
             case FORWARD:
@@ -34,6 +34,7 @@ public class RegisterViewModel extends ViewModel {
                 transaction.setCustomAnimations(R.anim.slide_right, R.anim.slide_right_before);
         }
 
+        transaction.replace(frame.getId(), frag);
         transaction.commit();
     }
 
@@ -65,14 +66,10 @@ public class RegisterViewModel extends ViewModel {
 
     public enum AnimDirection {INIT, FORWARD, BACKWARD}
 
-    public MutableLiveData<Enum<AnimDirection>> currentDirection = new MutableLiveData<>(AnimDirection.INIT);
+    public MutableLiveData<AnimDirection> currentDirection = new MutableLiveData<>(AnimDirection.INIT);
 
-    public Boolean isFirstPage() {
-        return currentPage.getValue() == 0;
-    }
-
-    public Boolean isForward() {
-        return currentDirection.getValue() == AnimDirection.FORWARD;
+    public Boolean isBackward() {
+        return currentDirection.getValue() == AnimDirection.BACKWARD;
     }
 
     public void nextPage() {
@@ -91,7 +88,10 @@ public class RegisterViewModel extends ViewModel {
         }
     }
 
+    // Shared scope
+
     public MutableLiveData<Boolean> isNextEnabled = new MutableLiveData<>(false);
+    public MutableLiveData<String> errorMsg = new MutableLiveData<>("");
 
     // Fragment 1
 

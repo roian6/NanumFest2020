@@ -1,7 +1,6 @@
 package com.david0926.nanumfest2020.dialog;
 
 import android.app.Dialog;
-import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -16,7 +15,7 @@ import com.david0926.nanumfest2020.databinding.DialogLoadingBinding;
 
 public class LoadingDialog extends Dialog {
 
-    private Context mContext;
+    private FragmentActivity mActivity;
     private String msg = "";
 
     private DialogLoadingBinding binding;
@@ -28,14 +27,15 @@ public class LoadingDialog extends Dialog {
         void onAnimationFinish();
     }
 
-    public void setOnAnimationFinishListener(OnAnimationFinishListener listener) {
+    public LoadingDialog setOnAnimationFinishListener(OnAnimationFinishListener listener) {
         onAnimationFinishListener = listener;
+        return this;
     }
 
-    public LoadingDialog(@NonNull Context context) {
-        super(context);
+    public LoadingDialog(@NonNull FragmentActivity fragmentActivity) {
+        super(fragmentActivity);
         super.setCancelable(false);
-        mContext = context;
+        mActivity = fragmentActivity;
     }
 
     @Override
@@ -44,7 +44,7 @@ public class LoadingDialog extends Dialog {
         binding = DataBindingUtil.inflate(getLayoutInflater(), R.layout.dialog_loading, null, false);
         setContentView(binding.getRoot());
 
-        binding.setLifecycleOwner((FragmentActivity) mContext);
+        binding.setLifecycleOwner(mActivity);
 
         ViewModelProvider.NewInstanceFactory f = new ViewModelProvider.NewInstanceFactory();
         viewModel = f.create(LoadingDialogViewModel.class);
@@ -54,9 +54,10 @@ public class LoadingDialog extends Dialog {
         viewModel.msg.setValue(msg);
     }
 
-    public void setMessage(String msg) {
+    public LoadingDialog setMessage(String msg) {
         if (viewModel != null) viewModel.msg.setValue(msg);
         else this.msg = msg;
+        return this;
     }
 
     public void finish(boolean success) {
