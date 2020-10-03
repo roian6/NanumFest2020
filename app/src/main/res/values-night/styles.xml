@@ -11,6 +11,7 @@
         <item name="android:textViewStyle">@style/TextViewStyle</item>
         <item name="editTextStyle">@style/EditTextStyle</item>
         <item name="android:editTextStyle">@style/EditTextStyle</item>
+        <item name="toolbarNavigationButtonStyle">@style/ToolbarNavigationButtonStyle</item>
     </style>
 
 </resources>

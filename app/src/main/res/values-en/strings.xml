@@ -47,5 +47,16 @@
     <string name="login_loading">Signing in…</string>
     <string name="login_success">Successfully signed in!</string>
     <string name="on_board_start">Get Started</string>
+    <string name="register_skip">Skip</string>
+    <string name="register_next">Next</string>
+    <string name="register_text_name_email">Let us know your \nname and email</string>
+    <string name="register_name">Name</string>
+    <string name="register_email">Email</string>
+    <string name="register_text_pw">Create your \npassword</string>
+    <string name="register_pw">Password</string>
+    <string name="register_pw_confirm">Confirm Password</string>
+    <string name="register_text_profile_introduce">Upload your \nprofile and introduction</string>
+    <string name="register_introduce">20-letters introduce yourself</string>
+    <string name="register_finish">Finish</string>
 
 </resources>

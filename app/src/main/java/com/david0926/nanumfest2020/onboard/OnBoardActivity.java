@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.david0926.nanumfest2020.MainActivity;
 import com.david0926.nanumfest2020.R;
 import com.david0926.nanumfest2020.databinding.ActivityOnBoardBinding;
 import com.david0926.nanumfest2020.login.LoginActivity;
@@ -29,14 +28,13 @@ public class OnBoardActivity extends AppCompatActivity {
         viewModel = ViewModelProviders.of(this).get(OnBoardViewModel.class);
         binding.setViewModel(viewModel);
 
-        //TODO: move to viewModel
         OnBoardPagerAdapter adapter = new OnBoardPagerAdapter(this);
         binding.pagerOnBoard.setAdapter(adapter);
     }
 
     @Override
     public void onBackPressed() {
-        if (viewModel.currentPage.getValue() != 0) viewModel.previousPage();
+        if (!viewModel.isFirstPage()) viewModel.previousPage();
         else super.onBackPressed();
     }
 

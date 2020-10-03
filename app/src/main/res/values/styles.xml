@@ -11,16 +11,18 @@
         <item name="android:textViewStyle">@style/TextViewStyle</item>
         <item name="editTextStyle">@style/EditTextStyle</item>
         <item name="android:editTextStyle">@style/EditTextStyle</item>
+        <item name="toolbarNavigationButtonStyle">@style/ToolbarNavigationButtonStyle</item>
     </style>
 
     <style name="TextViewStyle" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">16sp</item>
         <item name="android:fontFamily">@font/notosanskr_regular</item>
         <item name="android:includeFontPadding">false</item>
         <item name="android:textColor">@color/textColorPrimary</item>
     </style>
 
     <style name="EditTextStyle" parent="Widget.AppCompat.EditText">
-        <item name="android:fontFamily">@font/notosanskr_bold</item>
+        <item name="android:fontFamily">@font/notosanskr_regular</item>
         <item name="android:textColorHint">@color/materialGray5</item>
         <item name="android:padding">16dp</item>
         <item name="android:background">@drawable/round_box</item>
@@ -30,6 +32,7 @@
     </style>
 
     <style name="ButtonStyleColored" parent="Widget.AppCompat.Button">
+        <item name="android:textAllCaps">false</item>
         <item name="android:fontFamily">@font/notosanskr_bold</item>
         <item name="android:background">@drawable/round_box</item>
         <item name="android:backgroundTint">@color/colorPrimary</item>
@@ -37,7 +40,17 @@
         <item name="android:textSize">17sp</item>
     </style>
 
+    <style name="ButtonStyleColored.Disabled" parent="Widget.AppCompat.Button">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@font/notosanskr_bold</item>
+        <item name="android:background">@drawable/round_box</item>
+        <item name="android:backgroundTint">@color/materialGray6</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">17sp</item>
+    </style>
+
     <style name="ButtonStyleColorless" parent="Widget.AppCompat.Button">
+        <item name="android:textAllCaps">false</item>
         <item name="android:fontFamily">@font/notosanskr_bold</item>
         <item name="android:elevation">20dp</item>
         <item name="android:background">@drawable/round_box</item>
@@ -47,6 +60,7 @@
     </style>
 
     <style name="ButtonStyleBorder" parent="Widget.AppCompat.Button">
+        <item name="android:textAllCaps">false</item>
         <item name="android:fontFamily">@font/notosanskr_bold</item>
         <item name="android:elevation">20dp</item>
         <item name="android:background">@drawable/round_box_border</item>
@@ -63,8 +77,12 @@
     </style>
 
     <style name="TitleBarTextAppearance" parent="android:TextAppearance">
-        <item name="android:fontFamily">@font/productb</item>
-        <item name="android:textSize">24sp</item>
+        <item name="android:fontFamily">@font/notosanskr_bold</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="ToolbarNavigationButtonStyle" parent="Widget.AppCompat.Toolbar.Button.Navigation">
+        <item name="tint">@color/textColorPrimary</item>
     </style>
 
 </resources>
