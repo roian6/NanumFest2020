@@ -23,7 +23,7 @@ public class OnBoardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_on_board);
         binding.setLifecycleOwner(this);
-        binding.setActivity(this);
+        binding.setClickHandler(new OnBoardActivityClickHandler());
 
         viewModel = ViewModelProviders.of(this).get(OnBoardViewModel.class);
         binding.setViewModel(viewModel);
@@ -32,15 +32,17 @@ public class OnBoardActivity extends AppCompatActivity {
         binding.pagerOnBoard.setAdapter(adapter);
     }
 
+    public class OnBoardActivityClickHandler {
+        public void btnFinishClick() {
+            SharedPreferenceUtil.put(OnBoardActivity.this, "user_state", "login");
+            startActivity(new Intent(OnBoardActivity.this, LoginActivity.class));
+            finish();
+        }
+    }
+
     @Override
     public void onBackPressed() {
         if (!viewModel.isFirstPage()) viewModel.previousPage();
         else super.onBackPressed();
-    }
-
-    public void finishOnBoard() {
-        SharedPreferenceUtil.put(this, "user_state", "login");
-        startActivity(new Intent(OnBoardActivity.this, LoginActivity.class));
-        finish();
     }
 }

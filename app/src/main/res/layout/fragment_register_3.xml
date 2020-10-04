@@ -8,6 +8,10 @@
             name="viewModel"
             type="com.david0926.nanumfest2020.register.RegisterViewModel" />
 
+        <variable
+            name="clickHandler"
+            type="com.david0926.nanumfest2020.register.Register3Fragment.Register3FragmentClickHandler" />
+
     </data>
 
     <ScrollView
@@ -35,6 +39,7 @@
                 android:layout_width="108dp"
                 android:layout_height="108dp"
                 android:layout_margin="36dp"
+                app:bindImageUri="@{viewModel.profile}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView6" />
@@ -42,6 +47,7 @@
             <com.airbnb.lottie.LottieAnimationView
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:visibility="@{viewModel.profile==null}"
                 app:layout_constraintBottom_toBottomOf="@+id/circleImageView"
                 app:layout_constraintEnd_toEndOf="@+id/circleImageView"
                 app:layout_constraintStart_toStartOf="@+id/circleImageView"
@@ -57,6 +63,7 @@
                 android:background="@drawable/circle"
                 android:backgroundTint="@color/colorPrimary"
                 android:elevation="4dp"
+                android:onClick="@{()->clickHandler.btnProfileClick()}"
                 android:padding="4dp"
                 android:src="@drawable/ic_baseline_edit_24"
                 app:layout_constraintBottom_toBottomOf="@+id/circleImageView"

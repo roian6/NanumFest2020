@@ -52,7 +52,7 @@ public class BindingOptions {
         if (a == null) return;
 
         InputMethodManager imm = (InputMethodManager) a.getSystemService(Context.INPUT_METHOD_SERVICE);
-        if (imm != null) imm.showSoftInput(e, InputMethodManager.SHOW_FORCED);
+        if (imm != null) imm.showSoftInput(e, InputMethodManager.SHOW_IMPLICIT);
     }
 
 }

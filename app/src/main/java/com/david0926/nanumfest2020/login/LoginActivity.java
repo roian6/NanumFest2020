@@ -25,34 +25,38 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login);
         binding.setLifecycleOwner(this);
-        binding.setActivity(this);
+        binding.setClickHandler(new LoginActivityClickHandler());
 
         viewModel = ViewModelProviders.of(this).get(LoginActivityViewModel.class);
         binding.setViewModel(viewModel);
     }
 
-    public void btnLoginClick() {
-        KeyboardUtil.hideKeyboard(this);
+    public class LoginActivityClickHandler {
 
-        LoadingDialog dialog = new LoadingDialog(this);
-        dialog.setMessage(getString(R.string.login_loading)).show();
+        public void btnLoginClick() {
+            KeyboardUtil.hideKeyboard(LoginActivity.this);
 
-        FirebaseLogin.login(viewModel.email.getValue(), viewModel.pw.getValue(), getResources(),
-                user -> {
-                    UserCache.setUser(this, user);
-                    dialog.setMessage(getString(R.string.login_success)).setOnAnimationFinishListener(() -> {
-                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                        finish();
-                    }).finish(true);
-                },
-                errorMsg -> {
-                    dialog.finish(false);
-                    viewModel.errorMsg.setValue(errorMsg);
-                });
-    }
+            LoadingDialog dialog = new LoadingDialog(LoginActivity.this);
+            dialog.setMessage(getString(R.string.login_loading)).show();
 
-    public void btnRegisterClick() {
-        startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
-        overridePendingTransition(R.anim.slide_up, R.anim.slide_up_before);
+            FirebaseLogin.login(viewModel.email.getValue(), viewModel.pw.getValue(), getResources(),
+                    user -> {
+                        UserCache.setUser(LoginActivity.this, user);
+                        dialog.setMessage(getString(R.string.login_success)).setOnAnimationFinishListener(() -> {
+                            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                            finish();
+                        }).finish(true);
+                    },
+                    errorMsg -> {
+                        dialog.finish(false);
+                        viewModel.errorMsg.setValue(errorMsg);
+                    });
+        }
+
+        public void btnRegisterClick() {
+            startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
+            overridePendingTransition(R.anim.slide_up, R.anim.slide_up_before);
+        }
+
     }
 }

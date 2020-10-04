@@ -65,11 +65,11 @@ public class FirebaseLogin {
                         FirebaseErrorUtil.getErrorString(mResources, e, R.string.error_no_user_account)));
     }
 
-    private static void getUserData(String document, OnSuccessListener<DocumentSnapshot> s) {
+    private static void getUserData(String email, OnSuccessListener<DocumentSnapshot> s) {
         FirebaseFirestore
                 .getInstance()
                 .collection("users")
-                .document(document)
+                .document(email)
                 .get()
                 .addOnSuccessListener(s)
                 .addOnFailureListener(e -> onLoginFailedListener.onLoginFailed(

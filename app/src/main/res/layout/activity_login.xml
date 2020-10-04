@@ -5,8 +5,8 @@
     <data>
 
         <variable
-            name="activity"
-            type="com.david0926.nanumfest2020.login.LoginActivity" />
+            name="clickHandler"
+            type="com.david0926.nanumfest2020.login.LoginActivity.LoginActivityClickHandler" />
 
         <variable
             name="viewModel"
@@ -103,6 +103,7 @@
                 android:text="@string/login_forgot_pw"
                 android:textColor="@color/materialGray6"
                 android:textSize="12sp"
+                app:layout_constrainedWidth="true"
                 app:layout_constraintEnd_toEndOf="@+id/editText2"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="@+id/editText2"
@@ -115,7 +116,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="24dp"
                 android:layout_marginTop="12dp"
-                android:onClick="@{() -> activity.btnLoginClick()}"
+                android:onClick="@{() -> clickHandler.btnLoginClick()}"
                 android:padding="4dp"
                 android:text="@string/login_login"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -123,16 +124,17 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
             <TextView
-                android:textSize="14sp"
                 android:id="@+id/textView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/notosanskr_bold"
                 android:textColor="@color/materialRed"
+                android:textSize="14sp"
                 android:visibility="invisible"
                 app:bindErrorMsg="@{viewModel.errorMsg}"
                 app:bindInvisibility="@{viewModel.errorMsg.length() &gt; 0}"
+                app:layout_constrainedWidth="true"
                 app:layout_constraintBottom_toTopOf="@id/txt_login_register"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -148,6 +150,7 @@
                 android:text="@string/login_text_register"
                 android:textColor="@color/materialGray6"
                 android:textSize="14sp"
+                app:layout_constrainedWidth="true"
                 app:layout_constraintBottom_toTopOf="@+id/button2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -160,7 +163,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="24dp"
                 android:layout_marginBottom="24dp"
-                android:onClick="@{()->activity.btnRegisterClick()}"
+                android:onClick="@{() -> clickHandler.btnRegisterClick()}"
                 android:padding="4dp"
                 android:text="@string/login_register"
                 app:layout_constraintBottom_toBottomOf="parent"

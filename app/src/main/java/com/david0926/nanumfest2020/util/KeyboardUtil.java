@@ -11,7 +11,7 @@ public class KeyboardUtil {
         View v = activity.getCurrentFocus();
         if (v != null) {
             InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
-            if (imm != null) imm.showSoftInput(v, InputMethodManager.SHOW_FORCED);
+            if (imm != null) imm.showSoftInput(v, InputMethodManager.SHOW_IMPLICIT);
         }
     }
 

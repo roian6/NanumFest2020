@@ -38,6 +38,13 @@
     <string name="error_password_invalid_case">Please enter a valid password. (6~24 letters, 0–9 + A-z)</string>
     <string name="error_password_different">Please enter same password in both fields.</string>
     <string name="error_no_internet">Please check your internet condition.</string>
+    <string name="error_image_invalid_type">Please upload valid profile image. (jpeg, png)</string>
+    <string name="error_user_data_upload_failed">Failed to upload user data.</string>
+    <string name="error_user_create_failed">Failed to sign up.</string>
+    <string name="error_profile_logged_out">Couldn\'t load user data; Please skip profile setting.</string>
+    <string name="error_user_info_update_failed">Failed to update user data.</string>
+    <string name="error_image_upload_failed">Failed to upload image.</string>
+    <string name="error_image_url_failed">Failed to get image address.</string>
 
     <string name="login_title">Hi there!</string>
     <string name="login_text">Sign in, and go forth to chat!</string>
@@ -61,13 +68,16 @@
     <string name="register_text_profile_introduce">Upload your \nprofile and introduction</string>
     <string name="register_introduce">20-letters introduce yourself</string>
     <string name="register_finish">Finish</string>
-    <string name="error_user_data_upload_failed">Failed to upload user data.</string>
-    <string name="error_user_create_failed">Failed to sign up.</string>
+
     <string name="register_email_check">Validating email…</string>
     <string name="register_email_check_success">Email confirmed!</string>
     <string name="register_signing">Creating user…</string>
-    <string name="register_success">Successed!</string>
-    <string name="reigster_skip_profile">Skip profile setting?</string>
+    <string name="register_success">User successfully created!</string>
+    <string name="register_skip_profile">Skip profile setting?</string>
     <string name="register_cancel">Cancel</string>
+
+    <string name="register_pw_rule">(6~24 letters, A~z + 0~9)</string>
+    <string name="register_profile_uploading">Uploading profile…</string>
+    <string name="register_profile_upload_success">Upload success!</string>
 
 </resources>

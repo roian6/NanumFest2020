@@ -36,17 +36,15 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:textSize="14sp"
                 android:id="@+id/txt_regi2_pw_rule"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:text="(6~24자, 알파벳 대소문자+숫자)"
+                android:text="@string/register_pw_rule"
                 android:textColor="@color/materialGray6"
+                android:textSize="14sp"
                 app:layout_constrainedWidth="true"
                 app:layout_constraintBottom_toBottomOf="@+id/textView6"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/textView6"
+                app:layout_constraintEnd_toEndOf="@+id/editText3"
                 app:layout_constraintTop_toTopOf="@+id/textView6"
                 app:layout_constraintVertical_bias="1.0" />
 

@@ -52,10 +52,7 @@ public class FirebaseRegister {
         FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
         firebaseAuth
                 .createUserWithEmailAndPassword(email, pw)
-                .addOnSuccessListener(authResult -> {
-                    firebaseAuth.signOut();
-                    s.onSuccess(authResult);
-                })
+                .addOnSuccessListener(s)
                 .addOnFailureListener(e -> onRegisterFailedListener.onRegisterFailed(
                         FirebaseErrorUtil.getErrorString(mResources, e, R.string.error_user_create_failed)));
     }

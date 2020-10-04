@@ -11,6 +11,7 @@ import com.david0926.nanumfest2020.R;
 import com.david0926.nanumfest2020.databinding.ActivityRegisterBinding;
 import com.david0926.nanumfest2020.dialog.LoadingDialog;
 import com.david0926.nanumfest2020.util.SharedPreferenceUtil;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -22,7 +23,7 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_register);
         binding.setLifecycleOwner(this);
-        binding.setActivity(this);
+        binding.setClickHandler(new RegisterActivityClickHandler());
 
         viewModel = ViewModelProviders.of(this).get(RegisterViewModel.class);
         binding.setViewModel(viewModel);
@@ -30,37 +31,50 @@ public class RegisterActivity extends AppCompatActivity {
         viewModel.currentPage.setValue(getIntent().getIntExtra("register_page", 0));
     }
 
-    public void btnNextPressed() {
-        switch (viewModel.currentPage.getValue()) {
-            case 0:
-                emailNext();
-                break;
-            case 1:
-                pwNext();
-                break;
-            default:
-                viewModel.nextPage();
+    public class RegisterActivityClickHandler {
+
+        public void btnNextClick() {
+            switch (viewModel.currentPage.getValue()) {
+                case 0:
+                    checkEmail();
+                    break;
+                case 1:
+                    createAccount();
+                    break;
+                case 2:
+                    uploadProfile();
+            }
+        }
+
+        public void btnBackClick() {
+            onBackPressed();
+        }
+
+        public void btnProfileSkipClick() {
+            finishRegister();
         }
     }
 
-    private void emailNext() {
+    private void checkEmail() {
         LoadingDialog dialog = new LoadingDialog(this);
         dialog.setMessage(getString(R.string.register_email_check)).show();
+
         FirebaseCheckEmail.checkEmail(viewModel.email.getValue(), getResources(),
                 () -> {
                     dialog.setMessage(getString(R.string.register_email_check_success))
                             .setOnAnimationFinishListener(() -> viewModel.nextPage())
                             .finish(true);
                 },
-                msg -> {
+                errorMsg -> {
                     dialog.finish(false);
-                    viewModel.errorMsg.setValue(msg);
+                    viewModel.errorMsg.setValue(errorMsg);
                 });
     }
 
-    private void pwNext() {
+    private void createAccount() {
         LoadingDialog dialog = new LoadingDialog(this);
         dialog.setMessage(getString(R.string.register_signing)).show();
+
         FirebaseRegister.register(viewModel.name.getValue(), viewModel.email.getValue(),
                 viewModel.pw.getValue(), getResources(),
                 () -> {
@@ -69,14 +83,31 @@ public class RegisterActivity extends AppCompatActivity {
                             .finish(true);
                     SharedPreferenceUtil.put(this, "user_state", "upload_profile");
                 },
-                msg -> {
+                errorMsg -> {
                     dialog.finish(false);
-                    viewModel.errorMsg.setValue(msg);
+                    viewModel.errorMsg.setValue(errorMsg);
+                });
+    }
+
+    private void uploadProfile() {
+        LoadingDialog dialog = new LoadingDialog(this);
+        dialog.setMessage(getString(R.string.register_profile_uploading)).show();
+
+        FirebaseUploadProfile.uploadProfile(viewModel.profile.getValue(), viewModel.introduce.getValue(), getResources(),
+                () -> {
+                    dialog.setMessage(getString(R.string.register_profile_upload_success))
+                            .setOnAnimationFinishListener(this::finishRegister)
+                            .finish(true);
+                },
+                errorMsg -> {
+                    dialog.finish(false);
+                    viewModel.errorMsg.setValue(errorMsg);
                 });
     }
 
     public void finishRegister() {
         SharedPreferenceUtil.put(this, "user_state", "login");
+        FirebaseAuth.getInstance().signOut();
         finish();
     }
 
@@ -86,16 +117,13 @@ public class RegisterActivity extends AppCompatActivity {
             case 0: //first page
                 super.onBackPressed();
                 break;
-
             case 2: //last page
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder
-                        .setMessage(R.string.reigster_skip_profile)
+                builder.setMessage(R.string.register_skip_profile)
                         .setPositiveButton(R.string.register_skip, (dialog, which) -> finishRegister())
                         .setNegativeButton(R.string.register_cancel, (dialog, which) -> {
                         }).show();
                 break;
-
             default:
                 viewModel.previousPage();
         }

@@ -5,8 +5,8 @@
     <data>
 
         <variable
-            name="activity"
-            type="com.david0926.nanumfest2020.register.RegisterActivity" />
+            name="clickHandler"
+            type="com.david0926.nanumfest2020.register.RegisterActivity.RegisterActivityClickHandler" />
 
         <variable
             name="viewModel"
@@ -32,7 +32,7 @@
                 android:id="@+id/imageView5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="@{()->activity.onBackPressed()}"
+                android:onClick="@{()->clickHandler.btnBackClick()}"
                 android:padding="16dp"
                 android:src="@drawable/ic_baseline_arrow_back_24"
                 app:bindInvisibility="@{viewModel.currentPage!=2}"
@@ -46,7 +46,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/notosanskr_bold"
-                android:onClick="@{()->activity.finishRegister()}"
+                android:onClick="@{()->clickHandler.btnProfileSkipClick()}"
                 android:paddingHorizontal="24dp"
                 android:paddingVertical="16dp"
                 android:text="@string/register_skip"
@@ -114,6 +114,7 @@
             android:visibility="invisible"
             app:bindErrorMsg="@{viewModel.errorMsg}"
             app:bindInvisibility="@{viewModel.errorMsg.length() &gt; 0}"
+            app:layout_constrainedWidth="true"
             app:layout_constraintBottom_toTopOf="@+id/button3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -127,7 +128,7 @@
             android:layout_margin="24dp"
             android:clickable="@{viewModel.isNextEnabled}"
             android:focusable="@{viewModel.isNextEnabled}"
-            android:onClick="@{()->activity.btnNextPressed()}"
+            android:onClick="@{()->clickHandler.btnNextClick()}"
             android:text="@{viewModel.currentPage!=2?@string/register_next:@string/register_finish, default=@string/register_next}"
             app:bindButtonEnabled="@{viewModel.isNextEnabled}"
             app:layout_constraintBottom_toBottomOf="parent"

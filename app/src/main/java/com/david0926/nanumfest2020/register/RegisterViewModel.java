@@ -1,8 +1,9 @@
 package com.david0926.nanumfest2020.register;
 
-import android.util.Log;
+import android.net.Uri;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 
 import androidx.databinding.BindingAdapter;
 import androidx.databinding.ObservableArrayList;
@@ -105,5 +106,12 @@ public class RegisterViewModel extends ViewModel {
 
     // Fragment 3
 
+    @BindingAdapter("bindImageUri")
+    public static void bindImageUri(ImageView v, Uri uri) {
+        if (uri != null) v.setImageURI(uri);
+    }
+
+    public MutableLiveData<Uri> profile = new MutableLiveData<>();
     public MutableLiveData<String> introduce = new MutableLiveData<>("");
+
 }
