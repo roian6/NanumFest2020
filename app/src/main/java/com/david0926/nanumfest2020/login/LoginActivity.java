@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.david0926.nanumfest2020.MainActivity;
+import com.david0926.nanumfest2020.main.MainActivity;
 import com.david0926.nanumfest2020.R;
 import com.david0926.nanumfest2020.databinding.ActivityLoginBinding;
 import com.david0926.nanumfest2020.dialog.LoadingDialog;

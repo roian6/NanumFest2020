@@ -8,6 +8,7 @@ import android.os.Looper;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.david0926.nanumfest2020.login.LoginActivity;
+import com.david0926.nanumfest2020.main.MainActivity;
 import com.david0926.nanumfest2020.onboard.OnBoardActivity;
 import com.david0926.nanumfest2020.register.RegisterActivity;
 import com.david0926.nanumfest2020.util.SharedPreferenceUtil;

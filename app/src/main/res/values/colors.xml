@@ -23,4 +23,5 @@
     <color name="backgroundColorPrimary">#ffffff</color>
     <color name="editTextBackgroundColorPrimary">#f1f3f5</color>
     <color name="buttonDisabledColorPrimary">#ced4da</color>
+    <color name="bottomNavIconColorPrimary">#868e96</color>
 </resources>

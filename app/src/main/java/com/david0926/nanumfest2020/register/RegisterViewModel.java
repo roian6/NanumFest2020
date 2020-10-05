@@ -22,8 +22,8 @@ public class RegisterViewModel extends ViewModel {
 
     // Activity
 
-    @BindingAdapter({"bindFragment", "bindFragmentAnimDirection"})
-    public static void bindFragment(FrameLayout frame, Fragment frag, AnimDirection dir) {
+    @BindingAdapter({"bindFragmentWithAnim", "bindFragmentAnimDirection"})
+    public static void bindFragmentWithAnim(FrameLayout frame, Fragment frag, AnimDirection dir) {
         FragmentActivity a = (FragmentActivity) frame.getContext();
         FragmentTransaction transaction = a.getSupportFragmentManager().beginTransaction();
 
