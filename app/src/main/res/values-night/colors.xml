@@ -20,6 +20,7 @@
 
     <color name="textColorPrimary">#f8f9fa</color>
     <color name="backgroundColorPrimary">#121212</color>
+    <color name="cardBackgroundColorPrimary">#212529</color>
     <color name="editTextBackgroundColorPrimary">#212529</color>
     <color name="buttonDisabledColorPrimary">#343a40</color>
     <color name="bottomNavIconColorPrimary">#ced4da</color>

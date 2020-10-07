@@ -32,17 +32,17 @@ public class FirebaseRegister {
         onRegisterFailedListener = e;
         mResources = res;
 
-        uploadData(name, email,
+        uploadData(name, email, res.getString(R.string.profile_placeholder),
                 s1 -> createUser(email, pw,
                         s2 -> onRegisterSuccessListener.onRegisterSuccess()));
     }
 
-    private static void uploadData(String name, String email, OnSuccessListener<Void> s) {
+    private static void uploadData(String name, String email, String profile, OnSuccessListener<Void> s) {
         FirebaseFirestore
                 .getInstance()
                 .collection("users")
                 .document(email)
-                .set(new UserModel(name, email))
+                .set(new UserModel(name, email, profile))
                 .addOnSuccessListener(s)
                 .addOnFailureListener(e -> onRegisterFailedListener.onRegisterFailed(
                         FirebaseErrorUtil.getErrorString(mResources, e, R.string.error_user_data_upload_failed)));

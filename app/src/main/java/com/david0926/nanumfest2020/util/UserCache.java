@@ -25,4 +25,9 @@ public class UserCache {
         Gson gson = new Gson();
         return gson.fromJson(getSharedPreferences(context).getString("user_json", ""), UserModel.class);
     }
+
+    public static void logout(Context context) {
+        SharedPreferences.Editor editor = getSharedPreferences(context).edit();
+        editor.putString("user_json", null).apply();
+    }
 }

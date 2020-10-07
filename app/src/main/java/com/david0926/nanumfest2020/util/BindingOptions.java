@@ -7,12 +7,14 @@ import android.view.animation.AnimationUtils;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.core.content.ContextCompat;
 import androidx.databinding.BindingAdapter;
 import androidx.databinding.BindingConversion;
 
+import com.bumptech.glide.Glide;
 import com.david0926.nanumfest2020.R;
 
 public class BindingOptions {
@@ -53,6 +55,12 @@ public class BindingOptions {
 
         InputMethodManager imm = (InputMethodManager) a.getSystemService(Context.INPUT_METHOD_SERVICE);
         if (imm != null) imm.showSoftInput(e, InputMethodManager.SHOW_IMPLICIT);
+    }
+
+    @BindingAdapter("bindImageLink")
+    public static void bindImageLink(ImageView view, String link) {
+        if (link == null || link.isEmpty()) return;
+        Glide.with(view).load(link).into(view);
     }
 
 }

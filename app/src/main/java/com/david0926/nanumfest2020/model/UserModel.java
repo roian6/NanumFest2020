@@ -2,18 +2,16 @@ package com.david0926.nanumfest2020.model;
 
 public class UserModel {
 
-    private static final String PROFILE_PLACEHOLDER = "https://raw.githubusercontent.com/roian6/FileDrive/master/%EB%A7%81%ED%81%AC%EC%9A%A9%20%EC%9D%B4%EB%AF%B8%EC%A7%80/undraw_content_team_3epn.png";
-
     public UserModel() {
     }
 
     private String name, email, time, profile, introduce;
 
-    public UserModel(String name, String email) {
+    public UserModel(String name, String email, String profile) {
         this.name = name;
         this.email = email;
+        this.profile = profile;
         time = "";
-        profile = PROFILE_PLACEHOLDER;
         introduce = "";
     }
 

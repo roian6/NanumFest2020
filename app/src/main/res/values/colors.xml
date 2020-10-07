@@ -2,7 +2,6 @@
 <resources>
     <color name="colorPrimary">#1eadc7</color>
     <color name="colorPrimaryDark">#1eadc7</color>
-    <color name="colorPrimaryLight">#66dffa</color>
     <color name="colorAccent">#1eadc7</color>
     <color name="materialGray0">#f8f9fa</color>
     <color name="materialGray1">#f1f3f5</color>
@@ -21,7 +20,10 @@
 
     <color name="textColorPrimary">#121212</color>
     <color name="backgroundColorPrimary">#ffffff</color>
+    <color name="cardBackgroundColorPrimary">#ffffff</color>
     <color name="editTextBackgroundColorPrimary">#f1f3f5</color>
     <color name="buttonDisabledColorPrimary">#ced4da</color>
     <color name="bottomNavIconColorPrimary">#868e96</color>
+
+    <color name="colorSecondary">#66dffa</color>
 </resources>

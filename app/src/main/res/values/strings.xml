@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">SSF2020</string>
 
+    <string name="profile_placeholder" translatable="false">https://raw.githubusercontent.com/roian6/FileDrive/master/%EB%A7%81%ED%81%AC%EC%9A%A9%20%EC%9D%B4%EB%AF%B8%EC%A7%80/undraw_content_team_3epn.png</string>
+
     <string name="splash_phrase">2020 나눔축제 채팅 앱 만들기 클래스</string>
     <string name="splash_copyright">© 2020. EDCAN. all rights reserved.</string>
 
