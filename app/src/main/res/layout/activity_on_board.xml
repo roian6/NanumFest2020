@@ -6,11 +6,11 @@
 
         <variable
             name="clickHandler"
-            type="com.david0926.nanumfest2020.onboard.OnBoardActivity.OnBoardActivityClickHandler" />
+            type="com.david0926.nanumfest2020.screen.onboard.OnBoardActivity.OnBoardActivityClickHandler" />
 
         <variable
             name="viewModel"
-            type="com.david0926.nanumfest2020.onboard.OnBoardViewModel" />
+            type="com.david0926.nanumfest2020.screen.onboard.OnBoardViewModel" />
 
     </data>
 

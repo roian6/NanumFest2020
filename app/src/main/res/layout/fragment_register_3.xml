@@ -6,11 +6,11 @@
 
         <variable
             name="viewModel"
-            type="com.david0926.nanumfest2020.register.RegisterViewModel" />
+            type="com.david0926.nanumfest2020.screen.register.RegisterViewModel" />
 
         <variable
             name="clickHandler"
-            type="com.david0926.nanumfest2020.register.Register3Fragment.Register3FragmentClickHandler" />
+            type="com.david0926.nanumfest2020.screen.register.Register3Fragment.Register3FragmentClickHandler" />
 
     </data>
 

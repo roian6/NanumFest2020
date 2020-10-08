@@ -1,8 +1,7 @@
 <resources>
-    <string name="app_name">NanumFest2020</string>
+    <string name="app_name">SSF2020</string>
 
     <string name="splash_phrase">2020 SSF chat app develop class</string>
-    <string name="splash_copyright">© 2020. EDCAN. all rights reserved.</string>
 
     <string name="on_board_1_title">No contact,</string>
     <string name="on_board_1_sub">Use your chat app</string>
@@ -79,5 +78,21 @@
     <string name="register_pw_rule">(6~24 letters, A~z + 0~9)</string>
     <string name="register_profile_uploading">Uploading profile…</string>
     <string name="register_profile_upload_success">Upload success!</string>
+    <string name="error_send_chat_failed">Failed to send message.</string>
+    <string name="main_1_chat">Chat</string>
+    <string name="main_1_title">Start Chatting</string>
+    <string name="main_1_description">Join channel, \nstart chatting with others!</string>
+    <string name="main_1_enter">Join Channel</string>
+    <string name="main_2_profile">Profile</string>
+    <string name="main_2_edit_profile">Edit profile</string>
+    <string name="main_3_class_name">SSF 2020 Chat App Class</string>
+    <string name="main_3_dev_info">Developer info</string>
+    <string name="main_3_club_info">About our club</string>
+    <string name="main_3_license">Open source license</string>
+    <string name="main_3_logout">Logout</string>
+    <string name="main_3_more">More</string>
+    <string name="menu_main_chat">Chat</string>
+    <string name="menu_main_profile">Profile</string>
+    <string name="menu_main_more">More</string>
 
 </resources>

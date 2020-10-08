@@ -5,6 +5,8 @@ import android.content.res.Resources;
 import com.david0926.nanumfest2020.R;
 import com.google.firebase.FirebaseNetworkException;
 
+import javax.annotation.Nullable;
+
 public class FirebaseErrorUtil {
 
     // TODO: handle more error - task.getException().getErrorCode()...

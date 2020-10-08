@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="com.david0926.nanumfest2020.register.RegisterViewModel" />
+            type="com.david0926.nanumfest2020.screen.register.RegisterViewModel" />
 
     </data>
 

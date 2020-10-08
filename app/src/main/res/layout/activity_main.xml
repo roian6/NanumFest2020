@@ -7,14 +7,14 @@
 
         <variable
             name="viewModel"
-            type="com.david0926.nanumfest2020.main.MainActivityViewModel" />
+            type="com.david0926.nanumfest2020.screen.main.MainActivityViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/backgroundColorPrimary"
-        tools:context=".main.MainActivity">
+        tools:context=".screen.main.MainActivity">
 
         <FrameLayout
             android:id="@+id/frame_main"

@@ -6,7 +6,7 @@
 
         <variable
             name="clickHandler"
-            type="com.david0926.nanumfest2020.main.Main1Fragment.Main1FragmentClickHandler" />
+            type="com.david0926.nanumfest2020.screen.main.Main1Fragment.Main1FragmentClickHandler" />
 
     </data>
 
@@ -15,11 +15,11 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:visibility="gone"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginStart="8dp"
             android:src="@drawable/ic_round_chat_24"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@+id/textView20"
             app:layout_constraintStart_toEndOf="@+id/textView20"
             app:layout_constraintTop_toTopOf="@+id/textView20"
@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:fontFamily="@font/notosanskr_bold"
-            android:text="채팅"
+            android:text="@string/main_1_chat"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -42,6 +42,7 @@
             android:id="@+id/imageView8"
             android:layout_width="256dp"
             android:layout_height="256dp"
+            android:background="@color/cardBackgroundColorPrimary"
             android:padding="12dp"
             android:src="@drawable/undraw_design_team"
             app:layout_constraintBottom_toTopOf="@id/textView11"
@@ -57,7 +58,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:fontFamily="@font/notosanskr_bold"
-            android:text="채팅 시작하기"
+            android:text="@string/main_1_title"
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@id/textView12"
             app:layout_constraintEnd_toEndOf="parent"
@@ -71,7 +72,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/notosanskr_regular"
-            android:text="채팅방에 입장하고, \n다른 사용자들과 채팅을 시작해 보세요!"
+            android:text="@string/main_1_description"
             android:textAlignment="center"
             android:textSize="16sp"
             app:layout_constraintBottom_toTopOf="@id/btn_main_1_enter"
@@ -87,7 +88,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="28dp"
             android:onClick="@{()->clickHandler.btnEnterClick()}"
-            android:text="입장하기"
+            android:text="@string/main_1_enter"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"

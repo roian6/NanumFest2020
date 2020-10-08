@@ -7,11 +7,11 @@
 
         <variable
             name="viewModel"
-            type="com.david0926.nanumfest2020.chat.ChatActivityViewModel" />
+            type="com.david0926.nanumfest2020.screen.chat.ChatActivityViewModel" />
 
         <variable
             name="clickHandler"
-            type="com.david0926.nanumfest2020.chat.ChatActivity.ChatActivityClickHandler" />
+            type="com.david0926.nanumfest2020.screen.chat.ChatActivity.ChatActivityClickHandler" />
 
     </data>
 
@@ -31,10 +31,11 @@
             app:navigationIcon="@drawable/ic_baseline_arrow_back_24" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
+            android:id="@+id/recyclerChat"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginBottom="16dp"
+            app:bindChatModels="@{viewModel.chatModels}"
             app:layout_constraintBottom_toTopOf="@+id/editText5"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -42,23 +43,8 @@
             app:layout_constraintTop_toBottomOf="@+id/toolbar2"
             tools:listitem="@layout/row_chat_receive" />
 
-        <EditText
-            android:id="@+id/editText5"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="8dp"
-            android:hint="Aa"
-            android:padding="12dp"
-            android:textSize="16sp"
-            app:layout_constrainedWidth="true"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/imageView11"
-            app:layout_constraintStart_toStartOf="parent" />
 
         <!--TODO: replace this hacky code-->
-
         <EditText
             android:id="@+id/editText4"
             android:layout_width="0dp"
@@ -73,8 +59,23 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/imageView11"
             app:layout_constraintStart_toStartOf="parent" />
-
         <!--...till here-->
+
+        <EditText
+            android:id="@+id/editText5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp"
+            android:hint="@string/chat_message_hint"
+            android:padding="12dp"
+            android:text="@={viewModel.message}"
+            android:textSize="16sp"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/imageView11"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <ImageView
             android:id="@+id/imageView11"
@@ -83,6 +84,7 @@
             android:layout_marginEnd="16dp"
             android:onClick="@{()->clickHandler.btnSendClick()}"
             android:src="@drawable/ic_round_send_24"
+            app:bindImageButtonEnabled="@{!viewModel.message.empty}"
             app:layout_constraintBottom_toBottomOf="@+id/editText4"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/editText4"

@@ -1,6 +1,23 @@
 package com.david0926.nanumfest2020.model;
 
+import com.google.gson.Gson;
+
+import java.lang.reflect.Type;
+import java.util.Map;
+
 public class UserModel {
+
+    public static Map<String, Object> toMap(UserModel model) {
+        Gson gson = new Gson();
+        String json = gson.toJson(model);
+        return gson.fromJson(json, (Type) Map.class);
+    }
+
+    public static UserModel fromMap(Map<String, Object> map) {
+        Gson gson = new Gson();
+        String json = gson.toJson(map);
+        return gson.fromJson(json, UserModel.class);
+    }
 
     public UserModel() {
     }

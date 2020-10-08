@@ -4,7 +4,7 @@
     <string name="profile_placeholder" translatable="false">https://raw.githubusercontent.com/roian6/FileDrive/master/%EB%A7%81%ED%81%AC%EC%9A%A9%20%EC%9D%B4%EB%AF%B8%EC%A7%80/undraw_content_team_3epn.png</string>
 
     <string name="splash_phrase">2020 나눔축제 채팅 앱 만들기 클래스</string>
-    <string name="splash_copyright">© 2020. EDCAN. all rights reserved.</string>
+    <string name="splash_copyright" translatable="false">© 2020. EDCAN. all rights reserved.</string>
 
     <string name="on_board_1_title">언택트 시대,</string>
     <string name="on_board_1_sub">채팅으로 소통하세요</string>
@@ -45,6 +45,7 @@
     <string name="error_user_info_update_failed">유저 정보를 업데이트하는 데 실패했습니다.</string>
     <string name="error_image_upload_failed">이미지 업로드에 실패했습니다.</string>
     <string name="error_image_url_failed">이미지 주소를 가져오는 데 실패했습니다.</string>
+    <string name="error_send_chat_failed">메시지 전송에 실패했습니다.</string>
 
     <string name="login_title">만나서 반가워요!</string>
     <string name="login_text">내 프로필로 로그인하고, 채팅을 시작해 보세요.</string>
@@ -77,5 +78,21 @@
     <string name="register_pw_rule">(6~24자, 알파벳 대소문자+숫자)</string>
     <string name="register_profile_uploading">프로필 업로드 중…</string>
     <string name="register_profile_upload_success">업로드 성공!</string>
+    <string name="main_1_chat">채팅</string>
+    <string name="main_1_title">채팅 시작하기</string>
+    <string name="main_1_description">채팅방에 입장하고, \n다른 사용자들과 채팅을 시작해 보세요!</string>
+    <string name="main_1_enter">입장하기</string>
+    <string name="main_2_profile">프로필</string>
+    <string name="main_2_edit_profile">프로필 수정하기</string>
+    <string name="main_3_class_name">SSF 2020 채팅 앱 만들기 클래스</string>
+    <string name="main_3_dev_info">개발자 정보</string>
+    <string name="main_3_club_info">동아리 소개</string>
+    <string name="main_3_license">오픈소스 라이선스</string>
+    <string name="main_3_logout">로그아웃</string>
+    <string name="main_3_more">더보기</string>
+    <string name="menu_main_chat">채팅</string>
+    <string name="menu_main_profile">프로필</string>
+    <string name="menu_main_more">더보기</string>
+    <string name="chat_message_hint" translatable="false">Aa</string>
 
 </resources>

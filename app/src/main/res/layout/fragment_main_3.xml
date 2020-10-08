@@ -6,7 +6,7 @@
 
         <variable
             name="clickHandler"
-            type="com.david0926.nanumfest2020.main.Main3Fragment.Main3FragmentClickHandler" />
+            type="com.david0926.nanumfest2020.screen.main.Main3Fragment.Main3FragmentClickHandler" />
 
     </data>
 
@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:fontFamily="@font/notosanskr_bold"
-            android:text="더보기"
+            android:text="@string/main_3_more"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -50,7 +50,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="24dp"
                 android:fontFamily="@font/notosanskr_bold"
-                android:text="SSF 2020 채팅 앱 만들기 클래스"
+                android:text="@string/main_3_class_name"
                 android:textSize="24sp"
                 app:layout_constrainedWidth="true"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -92,7 +92,7 @@
                 android:layout_marginHorizontal="24dp"
                 android:layout_marginTop="16dp"
                 android:onClick="@{()->clickHandler.btnDevInfoClick()}"
-                android:text="개발자 정보"
+                android:text="@string/main_3_dev_info"
                 app:layout_constraintBottom_toTopOf="@id/button6"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -106,7 +106,7 @@
                 android:layout_marginHorizontal="24dp"
                 android:layout_marginTop="16dp"
                 android:onClick="@{()->clickHandler.btnClubInfoClick()}"
-                android:text="동아리 소개"
+                android:text="@string/main_3_club_info"
                 app:layout_constraintBottom_toTopOf="@id/button7"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -121,7 +121,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
                 android:onClick="@{()->clickHandler.btnOpenSourceClick()}"
-                android:text="오픈소스 라이선스"
+                android:text="@string/main_3_license"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -136,7 +136,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="24dp"
             android:onClick="@{()->clickHandler.btnLogoutClick()}"
-            android:text="로그아웃"
+            android:text="@string/main_3_logout"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"

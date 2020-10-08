@@ -6,11 +6,11 @@
 
         <variable
             name="clickHandler"
-            type="com.david0926.nanumfest2020.login.LoginActivity.LoginActivityClickHandler" />
+            type="com.david0926.nanumfest2020.screen.login.LoginActivity.LoginActivityClickHandler" />
 
         <variable
             name="viewModel"
-            type="com.david0926.nanumfest2020.login.LoginActivityViewModel" />
+            type="com.david0926.nanumfest2020.screen.login.LoginActivityViewModel" />
 
     </data>
 

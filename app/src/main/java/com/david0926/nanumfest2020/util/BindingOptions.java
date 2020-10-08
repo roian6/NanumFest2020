@@ -38,10 +38,18 @@ public class BindingOptions {
     }
 
     @BindingAdapter("bindButtonEnabled")
-    public static void bindButtonEnabled(Button b, boolean enabled) {
-        b.setClickable(enabled);
-        b.setFocusable(enabled);
-        b.setBackgroundTintList(ContextCompat.getColorStateList(b.getContext(),
+    public static void bindButtonEnabled(View v, boolean enabled) {
+        v.setClickable(enabled);
+        v.setFocusable(enabled);
+        v.setBackgroundTintList(ContextCompat.getColorStateList(v.getContext(),
+                enabled ? R.color.colorPrimary : R.color.buttonDisabledColorPrimary));
+    }
+
+    @BindingAdapter("bindImageButtonEnabled")
+    public static void bindButtonEnabledTint(ImageView v, boolean enabled) {
+        v.setClickable(enabled);
+        v.setFocusable(enabled);
+        v.setImageTintList(ContextCompat.getColorStateList(v.getContext(),
                 enabled ? R.color.colorPrimary : R.color.buttonDisabledColorPrimary));
     }
 

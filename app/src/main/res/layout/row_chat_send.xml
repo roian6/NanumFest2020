@@ -6,7 +6,7 @@
 
         <variable
             name="chatModel"
-            type="com.david0926.nanumfest2020.model.ChatModel" />
+            type="com.david0926.nanumfest2020.screen.chat.ChatModel" />
 
     </data>
 
@@ -24,7 +24,7 @@
             android:backgroundTint="@color/colorPrimary"
             android:fontFamily="@font/apple_sd_gothic_neo_r"
             android:padding="12dp"
-            android:text="@{chatModel.message, default=`asdasdasd`}"
+            android:text="@{chatModel.message}"
             android:textColor="@android:color/white"
             android:textSize="16sp"
             app:layout_constrainedWidth="true"
