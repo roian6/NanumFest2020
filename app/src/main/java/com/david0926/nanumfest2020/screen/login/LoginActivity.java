@@ -34,33 +34,51 @@ public class LoginActivity extends AppCompatActivity {
     public class LoginActivityClickHandler {
 
         public void btnResetPwClick() {
-            startActivity(new Intent(LoginActivity.this, ResetPwActivity.class));
+            //TODO: Mission 3 - 비밀번호 재설정 버튼을 누르면 해당 화면을 보여주도록 코드를 작성해 주세요.
+            showResetPw();
         }
 
         public void btnLoginClick() {
-            KeyboardUtil.hideKeyboard(LoginActivity.this);
-
-            LoadingDialog dialog = new LoadingDialog(LoginActivity.this);
-            dialog.setMessage(getString(R.string.login_loading)).show();
-
-            FirebaseLogin.login(viewModel.email.getValue(), viewModel.pw.getValue(), getResources(),
-                    user -> {
-                        UserCache.setUser(LoginActivity.this, user);
-                        dialog.setMessage(getString(R.string.login_success)).setOnAnimationFinishListener(() -> {
-                            startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                            finish();
-                        }).finish(true);
-                    },
-                    errorMsg -> {
-                        dialog.finish(false);
-                        viewModel.errorMsg.setValue(errorMsg);
-                    });
+            // TODO: Mission 4 - 로그인 버튼을 누르면 로그인을 진행하도록 코드를 작성해 주세요.
+            hideKeyBoard();
+            doLogin();
         }
 
         public void btnRegisterClick() {
-            startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
-            overridePendingTransition(R.anim.slide_up, R.anim.slide_up_before);
+            // TODO: Mission 5 - 회원가입 버튼을 누르면 회원가입이 진행되도록 코드를 작성해 주세요.
+            showRegister();
         }
 
+    }
+
+    private void showRegister() {
+        startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
+        overridePendingTransition(R.anim.slide_up, R.anim.slide_up_before);
+    }
+
+    private void doLogin() {
+        LoadingDialog dialog = new LoadingDialog(LoginActivity.this);
+        dialog.setMessage(getString(R.string.login_loading)).show();
+
+        FirebaseLogin.login(viewModel.email.getValue(), viewModel.pw.getValue(), getResources(),
+                user -> {
+                    UserCache.setUser(LoginActivity.this, user);
+                    dialog.setMessage(getString(R.string.login_success)).setOnAnimationFinishListener(() -> {
+                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                        finish();
+                    }).finish(true);
+                },
+                errorMsg -> {
+                    dialog.finish(false);
+                    viewModel.errorMsg.setValue(errorMsg);
+                });
+    }
+
+    private void hideKeyBoard() {
+        KeyboardUtil.hideKeyboard(LoginActivity.this);
+    }
+
+    private void showResetPw() {
+        startActivity(new Intent(LoginActivity.this, ResetPwActivity.class));
     }
 }

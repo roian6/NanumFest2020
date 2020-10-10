@@ -34,10 +34,19 @@ public class OnBoardActivity extends AppCompatActivity {
 
     public class OnBoardActivityClickHandler {
         public void btnFinishClick() {
-            SharedPreferenceUtil.put(OnBoardActivity.this, "user_state", "login");
-            startActivity(new Intent(OnBoardActivity.this, LoginActivity.class));
+            //TODO: Mission 2 - 온보딩 화면이 끝난 후, 로그인 화면으로 넘어갈 수 있도록 코드를 작성해 주세요.
+            onBoardIsShown();
+            showLogin();
             finish();
         }
+    }
+
+    private void onBoardIsShown(){
+        SharedPreferenceUtil.put(OnBoardActivity.this, "user_state", "login");
+    }
+
+    private void showLogin(){
+        startActivity(new Intent(OnBoardActivity.this, LoginActivity.class));
     }
 
     @Override

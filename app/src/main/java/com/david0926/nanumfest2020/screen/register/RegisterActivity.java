@@ -11,7 +11,6 @@ import com.david0926.nanumfest2020.R;
 import com.david0926.nanumfest2020.databinding.ActivityRegisterBinding;
 import com.david0926.nanumfest2020.dialog.LoadingDialog;
 import com.david0926.nanumfest2020.util.SharedPreferenceUtil;
-import com.david0926.nanumfest2020.util.UserCache;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -37,12 +36,18 @@ public class RegisterActivity extends AppCompatActivity {
         public void btnNextClick() {
             switch (viewModel.currentPage.getValue()) {
                 case 0:
+                    // TODO: Mission 6 - 첫 번째 회원가입 페이지에서 넘어갈 때,
+                    //  이메일 중복 검사를 진행하도록 코드를 작성해 주세요.
                     checkEmail();
                     break;
                 case 1:
+                    // TODO: Mission 7 - 두 번째 회원가입 페이지에서 넘어갈 때,
+                    //  회원가입을 진행하도록 코드를 작성해 주세요.
                     createAccount();
                     break;
                 case 2:
+                    // TODO: Mission 8 - 세 번째 회원가입 페이지에서 넘어갈 때,
+                    //  프로필 정보 업로드를 진행하도록 코드를 작성해 주세요.
                     uploadProfile();
             }
         }
