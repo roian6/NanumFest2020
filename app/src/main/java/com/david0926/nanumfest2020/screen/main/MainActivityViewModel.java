@@ -45,7 +45,6 @@ public class MainActivityViewModel extends ViewModel {
 
     public BottomNavigationView.OnNavigationItemSelectedListener navigationItemSelectedListener = item -> {
 
-        // TODO: better way?
         int position;
         switch (item.getItemId()) {
             case R.id.action_1:

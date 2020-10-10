@@ -9,8 +9,6 @@ import javax.annotation.Nullable;
 
 public class FirebaseErrorUtil {
 
-    // TODO: handle more error - task.getException().getErrorCode()...
-
     public static String getErrorString(Resources res, Exception e, String defaultMsg) {
         return e instanceof FirebaseNetworkException ?
                 res.getString(R.string.error_no_internet) : defaultMsg;

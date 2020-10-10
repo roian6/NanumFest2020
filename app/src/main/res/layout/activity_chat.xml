@@ -47,7 +47,6 @@
             tools:listitem="@layout/row_chat_receive" />
 
 
-        <!--TODO: replace this hacky code-->
         <EditText
             android:id="@+id/editText4"
             android:layout_width="0dp"
@@ -62,7 +61,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/imageView11"
             app:layout_constraintStart_toStartOf="parent" />
-        <!--...till here-->
 
         <EditText
             android:id="@+id/editText5"

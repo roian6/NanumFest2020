@@ -45,7 +45,6 @@ public class EditProfileActivity extends AppCompatActivity {
         }
 
         public void btnProfileClick() {
-            // TODO: implement dark mode on picker
             TedImagePicker
                     .with(EditProfileActivity.this)
                     .startAnimation(R.anim.slide_up, R.anim.slide_up_before)

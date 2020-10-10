@@ -46,7 +46,6 @@ public class ResetPwActivity extends AppCompatActivity {
         }
     }
 
-    // TODO: move to ViewModel?
     private void checkSendEnabled() {
         viewModel.isSendEnabled.setValue(
                 android.util.Patterns.EMAIL_ADDRESS.matcher(viewModel.email.getValue()).matches());

@@ -16,8 +16,6 @@ import java.util.List;
 
 public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatHolder> {
 
-    // TODO: better approach? - https://thdev.tech/android/2018/01/31/Recycler-Adapter-Distinguish/
-
     private static final int CHAT_RECEIVE = 0;
     private static final int CHAT_SEND = 1;
 

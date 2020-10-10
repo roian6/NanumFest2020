@@ -9,8 +9,6 @@ import java.util.Set;
 
 public class SharedPreferenceUtil {
 
-    //TODO: type unsafe - replace with DataStore
-
     public static void put(Context context, String key, Object value) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = prefs.edit();

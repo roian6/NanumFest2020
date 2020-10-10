@@ -12,8 +12,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class FirebaseRegister {
 
-    // TODO: add Cloud Functions - to upload register time
-
     private static OnRegisterSuccessListener onRegisterSuccessListener;
     private static OnRegisterFailedListener onRegisterFailedListener;
 

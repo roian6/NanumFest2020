@@ -45,7 +45,6 @@ public class FirebaseSendChat {
                         FirebaseErrorUtil.getErrorString(mResources, e, R.string.error_send_chat_failed)));
     }
 
-    // TODO: replace with server time - cloud functions
     private static String getTime(){
         return new Date().toString();
     }

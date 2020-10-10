@@ -42,8 +42,6 @@ public class FirebaseUploadProfile {
             return;
         }
 
-        // TODO: check image size later - file.length()
-
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user == null) {
             onUploadFailedListener.onUploadFailed(mResources.getString(R.string.error_profile_logged_out));

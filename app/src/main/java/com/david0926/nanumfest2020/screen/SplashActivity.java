@@ -26,10 +26,8 @@ public class SplashActivity extends AppCompatActivity {
 
             String userState = SharedPreferenceUtil.getString(this, "user_state", "on_board");
 
-            // TODO: debug - remove this line to show onboard screen once
             // userState = "on_board";
 
-            // TODO: replace with enum
             switch (userState) {
                 case "on_board":
                     startActivity(new Intent(SplashActivity.this, OnBoardActivity.class));

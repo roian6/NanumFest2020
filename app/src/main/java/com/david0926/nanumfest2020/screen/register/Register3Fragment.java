@@ -44,7 +44,6 @@ public class Register3Fragment extends Fragment {
 
     public class Register3FragmentClickHandler {
         public void btnProfileClick() {
-            // TODO: implement dark mode on picker
             TedImagePicker
                     .with(requireContext())
                     .startAnimation(R.anim.slide_up, R.anim.slide_up_before)

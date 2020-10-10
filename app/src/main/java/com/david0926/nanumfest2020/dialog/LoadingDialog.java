@@ -69,7 +69,6 @@ public class LoadingDialog extends Dialog {
         viewModel.lottieLoop.setValue(false);
         viewModel.lottieAnimation.setValue(R.raw.success);
 
-        //TODO: hardcoded delay - replace with lottie duration
         new Handler(Looper.getMainLooper()).postDelayed(() -> {
             onAnimationFinishListener.onAnimationFinish();
             cancel();
