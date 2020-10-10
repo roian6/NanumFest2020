@@ -22,12 +22,5 @@ public class MainActivity extends AppCompatActivity {
 
         viewModel = ViewModelProviders.of(this).get(MainActivityViewModel.class);
         binding.setViewModel(viewModel);
-
     }
-
-//    public void btnLogoutClick() {
-//        FirebaseAuth.getInstance().signOut();
-//        startActivity(new Intent(MainActivity.this, LoginActivity.class));
-//        finish();
-//    }
 }

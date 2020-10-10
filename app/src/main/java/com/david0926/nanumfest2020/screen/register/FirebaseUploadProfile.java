@@ -6,9 +6,7 @@ import android.webkit.MimeTypeMap;
 
 import com.david0926.nanumfest2020.R;
 import com.david0926.nanumfest2020.util.FirebaseErrorUtil;
-import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -25,7 +23,7 @@ public class FirebaseUploadProfile {
     private static Resources mResources;
 
     public interface OnUploadSuccessListener {
-        void onUploadSuccess();
+        void onUploadSuccess(String profile, String introduce);
     }
 
     public interface OnUploadFailedListener {
@@ -37,7 +35,9 @@ public class FirebaseUploadProfile {
         onUploadFailedListener = e;
         mResources = res;
 
-        if (!getMimeType(profile).equals("image/jpeg") && !getMimeType(profile).equals("image/png")) {
+        if (profile != null
+                && !getMimeType(profile).equals("image/jpeg")
+                && !getMimeType(profile).equals("image/png")) {
             onUploadFailedListener.onUploadFailed(mResources.getString(R.string.error_image_invalid_type));
             return;
         }
@@ -52,9 +52,14 @@ public class FirebaseUploadProfile {
 
         String email = user.getEmail();
 
-        uploadProfile(email, profile,
-                s1 -> updateUserInfo(email, s1.toString(), introduce,
-                        s2 -> onUploadSuccessListener.onUploadSuccess()));
+        if (profile != null) {
+            uploadProfile(email, profile,
+                    s1 -> updateUserInfo(email, s1.toString(), introduce,
+                            s2 -> onUploadSuccessListener.onUploadSuccess(s1.toString(), introduce)));
+        } else {
+            updateUserInfo(email, introduce, s1 -> onUploadSuccessListener.onUploadSuccess(null, introduce));
+        }
+
     }
 
     private static String getMimeType(Uri uri) {
@@ -63,6 +68,7 @@ public class FirebaseUploadProfile {
     }
 
     private static void uploadProfile(String email, Uri profile, OnSuccessListener<Uri> s) {
+
         StorageMetadata metadata = new StorageMetadata.Builder()
                 .setContentType("image/png")
                 .build();
@@ -72,7 +78,7 @@ public class FirebaseUploadProfile {
 
         UploadTask uploadTask = storageReference.putFile(profile, metadata);
 
-        uploadTask.continueWithTask((Continuation<UploadTask.TaskSnapshot, Task<Uri>>) task -> {
+        uploadTask.continueWithTask(task -> {
             if (task.isSuccessful()) return storageReference.getDownloadUrl();
 
             onUploadFailedListener.onUploadFailed(FirebaseErrorUtil
@@ -90,6 +96,17 @@ public class FirebaseUploadProfile {
                 .collection("users")
                 .document(email)
                 .update("introduce", introduce, "profile", profile)
+                .addOnSuccessListener(s)
+                .addOnFailureListener(e -> onUploadFailedListener.onUploadFailed(
+                        FirebaseErrorUtil.getErrorString(mResources, e, mResources.getString(R.string.error_user_info_update_failed))));
+    }
+
+    private static void updateUserInfo(String email, String introduce, OnSuccessListener<Void> s) {
+        FirebaseFirestore
+                .getInstance()
+                .collection("users")
+                .document(email)
+                .update("introduce", introduce)
                 .addOnSuccessListener(s)
                 .addOnFailureListener(e -> onUploadFailedListener.onUploadFailed(
                         FirebaseErrorUtil.getErrorString(mResources, e, mResources.getString(R.string.error_user_info_update_failed))));

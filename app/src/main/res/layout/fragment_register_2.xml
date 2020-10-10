@@ -29,8 +29,6 @@
                 android:text="@string/register_text_pw"
                 android:textSize="20sp"
                 app:layout_constrainedWidth="true"
-                app:layout_constraintEnd_toStartOf="@id/txt_regi2_pw_rule"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -45,6 +43,8 @@
                 app:layout_constrainedWidth="true"
                 app:layout_constraintBottom_toBottomOf="@+id/textView6"
                 app:layout_constraintEnd_toEndOf="@+id/editText3"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/textView6"
                 app:layout_constraintTop_toTopOf="@+id/textView6"
                 app:layout_constraintVertical_bias="1.0" />
 

@@ -7,10 +7,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.david0926.nanumfest2020.screen.main.MainActivity;
 import com.david0926.nanumfest2020.R;
 import com.david0926.nanumfest2020.databinding.ActivityLoginBinding;
 import com.david0926.nanumfest2020.dialog.LoadingDialog;
+import com.david0926.nanumfest2020.screen.main.MainActivity;
 import com.david0926.nanumfest2020.screen.register.RegisterActivity;
 import com.david0926.nanumfest2020.util.KeyboardUtil;
 import com.david0926.nanumfest2020.util.UserCache;
@@ -32,6 +32,10 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public class LoginActivityClickHandler {
+
+        public void btnResetPwClick() {
+            startActivity(new Intent(LoginActivity.this, ResetPwActivity.class));
+        }
 
         public void btnLoginClick() {
             KeyboardUtil.hideKeyboard(LoginActivity.this);

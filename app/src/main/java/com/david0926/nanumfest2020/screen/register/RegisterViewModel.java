@@ -106,11 +106,6 @@ public class RegisterViewModel extends ViewModel {
 
     // Fragment 3
 
-    @BindingAdapter("bindImageUri")
-    public static void bindImageUri(ImageView v, Uri uri) {
-        if (uri != null) v.setImageURI(uri);
-    }
-
     public MutableLiveData<Uri> profile = new MutableLiveData<>();
     public MutableLiveData<String> introduce = new MutableLiveData<>("");
 

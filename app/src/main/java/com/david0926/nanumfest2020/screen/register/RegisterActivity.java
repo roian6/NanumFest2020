@@ -11,6 +11,7 @@ import com.david0926.nanumfest2020.R;
 import com.david0926.nanumfest2020.databinding.ActivityRegisterBinding;
 import com.david0926.nanumfest2020.dialog.LoadingDialog;
 import com.david0926.nanumfest2020.util.SharedPreferenceUtil;
+import com.david0926.nanumfest2020.util.UserCache;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -78,10 +79,10 @@ public class RegisterActivity extends AppCompatActivity {
         FirebaseRegister.register(viewModel.name.getValue(), viewModel.email.getValue(),
                 viewModel.pw.getValue(), getResources(),
                 () -> {
+                    SharedPreferenceUtil.put(this, "user_state", "upload_profile");
                     dialog.setMessage(getString(R.string.register_success))
                             .setOnAnimationFinishListener(() -> viewModel.nextPage())
                             .finish(true);
-                    SharedPreferenceUtil.put(this, "user_state", "upload_profile");
                 },
                 errorMsg -> {
                     dialog.finish(false);
@@ -94,7 +95,7 @@ public class RegisterActivity extends AppCompatActivity {
         dialog.setMessage(getString(R.string.register_profile_uploading)).show();
 
         FirebaseUploadProfile.uploadProfile(viewModel.profile.getValue(), viewModel.introduce.getValue(), getResources(),
-                () -> {
+                (profile, introduce) -> {
                     dialog.setMessage(getString(R.string.register_profile_upload_success))
                             .setOnAnimationFinishListener(this::finishRegister)
                             .finish(true);

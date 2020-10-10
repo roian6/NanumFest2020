@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment;
 
 import com.david0926.nanumfest2020.R;
 import com.david0926.nanumfest2020.databinding.FragmentMain2Binding;
+import com.david0926.nanumfest2020.screen.profile.EditProfileActivity;
 import com.david0926.nanumfest2020.util.UserCache;
 
 public class Main2Fragment extends Fragment {
@@ -29,14 +30,19 @@ public class Main2Fragment extends Fragment {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_main_2, container, false);
         binding.setLifecycleOwner(this);
         binding.setClickHandler(new Main2FragmentClickHandler());
-        binding.setUserModel(UserCache.getUser(requireContext()));
 
         return binding.getRoot();
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        binding.setUserModel(UserCache.getUser(requireContext()));
+    }
+
     public class Main2FragmentClickHandler {
         public void btnEditClick() {
-            startActivity(new Intent(requireContext(), MainActivity.class));
+            startActivity(new Intent(requireContext(), EditProfileActivity.class));
         }
     }
 }

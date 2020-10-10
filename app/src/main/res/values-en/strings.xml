@@ -95,4 +95,14 @@
     <string name="menu_main_profile">Profile</string>
     <string name="menu_main_more">More</string>
 
+    <string name="chat_title">Chat</string>
+    <string name="edit_profile_complete">Profile successfully updated!</string>
+    <string name="edit_profile_title">Edit profile</string>
+    <string name="edit_profile_save">Save</string>
+
+    <string name="reset_pw_success">Successfully sent!</string>
+    <string name="reset_pw_send">Send reset email</string>
+    <string name="reset_pw_description">Enter your email \nyou used at registration</string>
+    <string name="reset_pw_title">Reset password</string>
+
 </resources>

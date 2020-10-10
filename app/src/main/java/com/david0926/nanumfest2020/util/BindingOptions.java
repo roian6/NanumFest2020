@@ -2,6 +2,7 @@ package com.david0926.nanumfest2020.util;
 
 import android.app.Activity;
 import android.content.Context;
+import android.net.Uri;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.view.inputmethod.InputMethodManager;
@@ -63,6 +64,11 @@ public class BindingOptions {
 
         InputMethodManager imm = (InputMethodManager) a.getSystemService(Context.INPUT_METHOD_SERVICE);
         if (imm != null) imm.showSoftInput(e, InputMethodManager.SHOW_IMPLICIT);
+    }
+
+    @BindingAdapter("bindImageUri")
+    public static void bindImageUri(ImageView v, Uri uri) {
+        if (uri != null) v.setImageURI(uri);
     }
 
     @BindingAdapter("bindImageLink")

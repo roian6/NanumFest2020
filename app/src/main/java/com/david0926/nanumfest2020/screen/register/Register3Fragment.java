@@ -54,8 +54,7 @@ public class Register3Fragment extends Fragment {
     }
 
     private void checkNextPageEnabled() {
-        viewModel.isNextEnabled.setValue(viewModel.profile.getValue() != null &&
-                !viewModel.introduce.getValue().isEmpty());
+        viewModel.isNextEnabled.setValue(!viewModel.introduce.getValue().isEmpty());
     }
 
 

@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">SSF2020</string>
 
-    <string name="profile_placeholder" translatable="false">https://raw.githubusercontent.com/roian6/FileDrive/master/%EB%A7%81%ED%81%AC%EC%9A%A9%20%EC%9D%B4%EB%AF%B8%EC%A7%80/undraw_content_team_3epn.png</string>
+    <string name="profile_placeholder" translatable="false">https://raw.githubusercontent.com/roian6/NanumFest2020/master/app/src/main/res/drawable/profile_placeholder.jpg</string>
 
     <string name="splash_phrase">2020 나눔축제 채팅 앱 만들기 클래스</string>
     <string name="splash_copyright" translatable="false">© 2020. EDCAN. all rights reserved.</string>
@@ -75,7 +75,7 @@
     <string name="register_success">회원가입 성공!</string>
     <string name="register_skip_profile">프로필 설정을 건너뛸까요?</string>
     <string name="register_cancel">취소</string>
-    <string name="register_pw_rule">(6~24자, 알파벳 대소문자+숫자)</string>
+    <string name="register_pw_rule">(6~24자, 영문+숫자)</string>
     <string name="register_profile_uploading">프로필 업로드 중…</string>
     <string name="register_profile_upload_success">업로드 성공!</string>
     <string name="main_1_chat">채팅</string>
@@ -94,5 +94,19 @@
     <string name="menu_main_profile">프로필</string>
     <string name="menu_main_more">더보기</string>
     <string name="chat_message_hint" translatable="false">Aa</string>
+    <string name="chat_title">채팅</string>
+
+    <string name="url_dev_info" translatable="false">https://github.com/roian6</string>
+    <string name="url_edcan" translatable="false">https://edcan.kr</string>
+    <string name="url_github" translatable="false">https://github.com/roian6/nanumfest2020</string>
+
+    <string name="edit_profile_complete">프로필 수정 완료!</string>
+    <string name="edit_profile_title">프로필 수정</string>
+    <string name="edit_profile_save">저장하기</string>
+
+    <string name="reset_pw_success">성공적으로 전송했습니다!</string>
+    <string name="reset_pw_send">재설정 메일 전송하기</string>
+    <string name="reset_pw_description">회원가입시 사용한\n이메일을 입력해 주세요</string>
+    <string name="reset_pw_title">비밀번호 재설정</string>
 
 </resources>
