@@ -38,17 +38,17 @@ public class RegisterActivity extends AppCompatActivity {
                 case 0:
                     // TODO: Mission 6 - 첫 번째 회원가입 페이지에서 넘어갈 때,
                     //  이메일 중복 검사를 진행하도록 코드를 작성해 주세요.
-                    checkEmail();
+
                     break;
                 case 1:
                     // TODO: Mission 7 - 두 번째 회원가입 페이지에서 넘어갈 때,
                     //  회원가입을 진행하도록 코드를 작성해 주세요.
-                    createAccount();
+
                     break;
                 case 2:
                     // TODO: Mission 8 - 세 번째 회원가입 페이지에서 넘어갈 때,
                     //  프로필 정보 업로드를 진행하도록 코드를 작성해 주세요.
-                    uploadProfile();
+
             }
         }
 
@@ -60,6 +60,83 @@ public class RegisterActivity extends AppCompatActivity {
             finishRegister();
         }
     }
+
+    public void finishRegister() {
+        SharedPreferenceUtil.put(this, "user_state", "login");
+        FirebaseAuth.getInstance().signOut();
+        finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        switch (viewModel.currentPage.getValue()) {
+            case 0: //first page
+                super.onBackPressed();
+                break;
+            case 2: //last page
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setMessage(R.string.register_skip_profile)
+                        .setPositiveButton(R.string.register_skip, (dialog, which) -> finishRegister())
+                        .setNegativeButton(R.string.register_cancel, (dialog, which) -> {
+                        }).show();
+                break;
+            default:
+                viewModel.previousPage();
+        }
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.slide_down_before, R.anim.slide_down);
+    }
+
+    /* method field
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     * */
 
     private void checkEmail() {
         LoadingDialog dialog = new LoadingDialog(this);
@@ -111,33 +188,5 @@ public class RegisterActivity extends AppCompatActivity {
                 });
     }
 
-    public void finishRegister() {
-        SharedPreferenceUtil.put(this, "user_state", "login");
-        FirebaseAuth.getInstance().signOut();
-        finish();
-    }
 
-    @Override
-    public void onBackPressed() {
-        switch (viewModel.currentPage.getValue()) {
-            case 0: //first page
-                super.onBackPressed();
-                break;
-            case 2: //last page
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setMessage(R.string.register_skip_profile)
-                        .setPositiveButton(R.string.register_skip, (dialog, which) -> finishRegister())
-                        .setNegativeButton(R.string.register_cancel, (dialog, which) -> {
-                        }).show();
-                break;
-            default:
-                viewModel.previousPage();
-        }
-    }
-
-    @Override
-    public void finish() {
-        super.finish();
-        overridePendingTransition(R.anim.slide_down_before, R.anim.slide_down);
-    }
 }

@@ -36,9 +36,56 @@ public class Main1Fragment extends Fragment {
     public class Main1FragmentClickHandler {
         public void btnEnterClick() {
             // TODO: Mission 10 - 버튼을 누르면 채팅을 시작할 수 있도록 코드를 작성해 주세요.
-            startChat();
+
         }
     }
+
+    /* method field
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     * */
 
     private void startChat() {
         startActivity(new Intent(requireContext(), ChatActivity.class));

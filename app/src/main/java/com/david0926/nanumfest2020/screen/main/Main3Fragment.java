@@ -40,16 +40,61 @@ public class Main3Fragment extends Fragment {
 
         public void btnLinkClick(String url) {
             // TODO: Mission 12 - 버튼을 누르면 브라우저가 실행되도록 코드를 작성해 주세요.
-            startUrl(url);
+
         }
 
         public void btnLogoutClick() {
             // TODO: Mission 13 - 버튼을 누르면 로그아웃이 진행되도록 코드를 작성해 주세요.
-            logout();
-            finish();
-            startLogin();
+
         }
     }
+
+    /* method field
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     * */
 
     private void startUrl(String url) {
         startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));

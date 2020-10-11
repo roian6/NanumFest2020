@@ -46,14 +46,61 @@ public class EditProfileActivity extends AppCompatActivity {
 
         public void btnProfileClick() {
             // TODO: Mission 16 - 버튼을 누르면 프로필 이미지를 선택할 수 있도록 코드를 작성해 주세요.
-            pickImage();
+
         }
 
         public void btnSaveClick() {
             // TODO: Mission 17 - 버튼을 누르면 프로필을 업데이트 하도록 코드를 작성해 주세요.
-            updateProfile();
+
         }
     }
+
+    /* method field
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     * */
 
     private void updateProfile() {
         LoadingDialog dialog = new LoadingDialog(EditProfileActivity.this);

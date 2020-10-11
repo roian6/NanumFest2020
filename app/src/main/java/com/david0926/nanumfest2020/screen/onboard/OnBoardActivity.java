@@ -35,11 +35,62 @@ public class OnBoardActivity extends AppCompatActivity {
     public class OnBoardActivityClickHandler {
         public void btnFinishClick() {
             //TODO: Mission 2 - 온보딩 화면이 끝난 후, 로그인 화면으로 넘어갈 수 있도록 코드를 작성해 주세요.
-            onBoardIsShown();
-            showLogin();
-            finish();
+
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        if (!viewModel.isFirstPage()) viewModel.previousPage();
+        else super.onBackPressed();
+    }
+
+    /* method field
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     * */
 
     private void onBoardIsShown(){
         SharedPreferenceUtil.put(OnBoardActivity.this, "user_state", "login");
@@ -49,9 +100,5 @@ public class OnBoardActivity extends AppCompatActivity {
         startActivity(new Intent(OnBoardActivity.this, LoginActivity.class));
     }
 
-    @Override
-    public void onBackPressed() {
-        if (!viewModel.isFirstPage()) viewModel.previousPage();
-        else super.onBackPressed();
-    }
+
 }

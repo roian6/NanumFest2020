@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!--TODO: Custom 2 - 앱 radius (둥근 정도) 변경하기-->
     <dimen name="app_radius">16dp</dimen>
 
 </resources>

@@ -43,9 +43,56 @@ public class Main2Fragment extends Fragment {
     public class Main2FragmentClickHandler {
         public void btnEditClick() {
             // TODO: Mission 11 - 버튼을 누르면 채팅을 시작할 수 있도록 코드를 작성해 주세요.
-            startEditProfile();
+
         }
     }
+
+    /* method field
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     * */
 
     private void startEditProfile() {
         startActivity(new Intent(requireContext(), EditProfileActivity.class));

@@ -23,9 +23,55 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
 
         //TODO: Mission 1 - 스플래시 스크린이 2초 뒤에 넘어갈 수 있도록 코드를 작성해 주세요.
-        nextScreen(2000);
 
     }
+
+    /* method field
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     * */
 
     private void nextScreen(int delay) {
         new Handler(Looper.getMainLooper()).postDelayed(() -> {

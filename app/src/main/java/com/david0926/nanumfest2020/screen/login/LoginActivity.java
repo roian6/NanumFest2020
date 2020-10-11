@@ -35,21 +35,67 @@ public class LoginActivity extends AppCompatActivity {
 
         public void btnResetPwClick() {
             //TODO: Mission 3 - 비밀번호 재설정 버튼을 누르면 해당 화면을 보여주도록 코드를 작성해 주세요.
-            showResetPw();
+
         }
 
         public void btnLoginClick() {
             // TODO: Mission 4 - 로그인 버튼을 누르면 로그인을 진행하도록 코드를 작성해 주세요.
-            hideKeyBoard();
-            doLogin();
+
         }
 
         public void btnRegisterClick() {
             // TODO: Mission 5 - 회원가입 버튼을 누르면 회원가입이 진행되도록 코드를 작성해 주세요.
-            showRegister();
+
         }
 
     }
+
+    /* method field
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     * */
 
     private void showRegister() {
         startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
