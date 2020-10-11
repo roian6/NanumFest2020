@@ -39,14 +39,32 @@ public class Main3Fragment extends Fragment {
     public class Main3FragmentClickHandler {
 
         public void btnLinkClick(String url) {
-            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
+            // TODO: Mission 12 - 버튼을 누르면 브라우저가 실행되도록 코드를 작성해 주세요.
+            startUrl(url);
         }
 
         public void btnLogoutClick() {
-            FirebaseAuth.getInstance().signOut();
-            UserCache.logout(requireContext());
-            requireActivity().finish();
-            startActivity(new Intent(requireContext(), LoginActivity.class));
+            // TODO: Mission 13 - 버튼을 누르면 로그아웃이 진행되도록 코드를 작성해 주세요.
+            logout();
+            finish();
+            startLogin();
         }
+    }
+
+    private void startUrl(String url) {
+        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
+    }
+
+    private void startLogin() {
+        startActivity(new Intent(requireContext(), LoginActivity.class));
+    }
+
+    private void finish() {
+        requireActivity().finish();
+    }
+
+    private void logout() {
+        FirebaseAuth.getInstance().signOut();
+        UserCache.logout(requireContext());
     }
 }

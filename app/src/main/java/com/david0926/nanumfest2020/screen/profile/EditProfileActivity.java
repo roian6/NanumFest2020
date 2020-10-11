@@ -45,31 +45,41 @@ public class EditProfileActivity extends AppCompatActivity {
         }
 
         public void btnProfileClick() {
-            TedImagePicker
-                    .with(EditProfileActivity.this)
-                    .startAnimation(R.anim.slide_up, R.anim.slide_up_before)
-                    .finishAnimation(R.anim.slide_down_before, R.anim.slide_down)
-                    .start((OnSelectedListener) uri -> viewModel.profile.setValue(uri));
+            // TODO: Mission 16 - 버튼을 누르면 프로필 이미지를 선택할 수 있도록 코드를 작성해 주세요.
+            pickImage();
         }
 
         public void btnSaveClick() {
-            LoadingDialog dialog = new LoadingDialog(EditProfileActivity.this);
-            dialog.setMessage(getString(R.string.register_profile_uploading)).show();
-
-            FirebaseUploadProfile.uploadProfile(viewModel.profile.getValue(), viewModel.introduce.getValue(), getResources(),
-                    (profile, introduce) -> {
-                        if (profile != null) mUser.setProfile(profile);
-                        mUser.setIntroduce(introduce);
-                        UserCache.setUser(EditProfileActivity.this, mUser);
-
-                        dialog.setMessage(getString(R.string.edit_profile_complete))
-                                .setOnAnimationFinishListener(EditProfileActivity.this::finish)
-                                .finish(true);
-                    },
-                    errorMsg -> {
-                        dialog.finish(false);
-                        viewModel.errorMsg.setValue(errorMsg);
-                    });
+            // TODO: Mission 17 - 버튼을 누르면 프로필을 업데이트 하도록 코드를 작성해 주세요.
+            updateProfile();
         }
+    }
+
+    private void updateProfile() {
+        LoadingDialog dialog = new LoadingDialog(EditProfileActivity.this);
+        dialog.setMessage(getString(R.string.register_profile_uploading)).show();
+
+        FirebaseUploadProfile.uploadProfile(viewModel.profile.getValue(), viewModel.introduce.getValue(), getResources(),
+                (profile, introduce) -> {
+                    if (profile != null) mUser.setProfile(profile);
+                    mUser.setIntroduce(introduce);
+                    UserCache.setUser(EditProfileActivity.this, mUser);
+
+                    dialog.setMessage(getString(R.string.edit_profile_complete))
+                            .setOnAnimationFinishListener(EditProfileActivity.this::finish)
+                            .finish(true);
+                },
+                errorMsg -> {
+                    dialog.finish(false);
+                    viewModel.errorMsg.setValue(errorMsg);
+                });
+    }
+
+    private void pickImage() {
+        TedImagePicker
+                .with(EditProfileActivity.this)
+                .startAnimation(R.anim.slide_up, R.anim.slide_up_before)
+                .finishAnimation(R.anim.slide_down_before, R.anim.slide_down)
+                .start((OnSelectedListener) uri -> viewModel.profile.setValue(uri));
     }
 }

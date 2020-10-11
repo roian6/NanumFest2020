@@ -37,8 +37,8 @@ public class ChatActivity extends AppCompatActivity {
 
         FirebaseObserveChat.observeMessage(getResources(),
                 chatDoc -> {
-                    viewModel.chatModels.clear();
-                    viewModel.chatModels.addAll(chatDoc.getChatModels());
+                    // TODO: Mission 14 - 채팅 메시지를 수신했을 때 화면에 추가할 수 있도록 코드를 작성해 주세요.
+                    refreshChat(chatDoc);
                     scrollToBottom();
                 },
                 errorMsg -> Toast.makeText(this, errorMsg, Toast.LENGTH_SHORT).show());
@@ -48,20 +48,34 @@ public class ChatActivity extends AppCompatActivity {
         });
     }
 
+    private void refreshChat(ChatDocModel chatDoc) {
+        viewModel.chatModels.clear();
+        viewModel.chatModels.addAll(chatDoc.getChatModels());
+    }
+
     public class ChatActivityClickHandler {
         public void btnBackClick() {
             onBackPressed();
         }
 
         public void btnSendClick() {
-            FirebaseSendChat.sendMessage(UserCache.getUser(ChatActivity.this),
-                    viewModel.message.getValue(), getResources(),
-                    () -> {
-
-                    },
-                    errorMsg -> Toast.makeText(ChatActivity.this, errorMsg, Toast.LENGTH_SHORT).show());
-            viewModel.message.setValue("");
+            // TODO: Mission 15 - 전송 버튼을 누르면 메시지가 전송되도록 코드를 작성해 주세요.
+            sendMessage();
+            clearInput();
         }
+    }
+
+    private void clearInput() {
+        viewModel.message.setValue("");
+    }
+
+    private void sendMessage() {
+        FirebaseSendChat.sendMessage(UserCache.getUser(ChatActivity.this),
+                viewModel.message.getValue(), getResources(),
+                () -> {
+
+                },
+                errorMsg -> Toast.makeText(ChatActivity.this, errorMsg, Toast.LENGTH_SHORT).show());
     }
 
     private void scrollToBottom() {

@@ -36,14 +36,20 @@ public class ResetPwActivity extends AppCompatActivity {
         }
 
         public void btnSendClick() {
-            FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
-            firebaseAuth.sendPasswordResetEmail(viewModel.email.getValue());
-            firebaseAuth.signOut();
-            UserCache.logout(ResetPwActivity.this);
-
-            Toast.makeText(ResetPwActivity.this, R.string.reset_pw_success, Toast.LENGTH_SHORT).show();
+            // TODO: Mission 9 - 비밀전호 재설정 메일을 보낼 수 있도록 코드를 작성해 주세요.
+            sendEmail();
+            showMessage();
             finish();
         }
+    }
+
+    private void sendEmail(){
+        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+        firebaseAuth.sendPasswordResetEmail(viewModel.email.getValue());
+    }
+
+    private void showMessage(){
+        Toast.makeText(ResetPwActivity.this, R.string.reset_pw_success, Toast.LENGTH_SHORT).show();
     }
 
     private void checkSendEnabled() {
