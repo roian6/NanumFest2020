@@ -12,6 +12,8 @@ import com.david0926.nanumfest2020.databinding.ActivityOnBoardBinding;
 import com.david0926.nanumfest2020.screen.login.LoginActivity;
 import com.david0926.nanumfest2020.util.SharedPreferenceUtil;
 
+import java.util.Arrays;
+
 
 public class OnBoardActivity extends AppCompatActivity {
 
@@ -28,7 +30,7 @@ public class OnBoardActivity extends AppCompatActivity {
         viewModel = ViewModelProviders.of(this).get(OnBoardViewModel.class);
         binding.setViewModel(viewModel);
 
-        OnBoardPagerAdapter adapter = new OnBoardPagerAdapter(this);
+        OnBoardPagerAdapter adapter = new OnBoardPagerAdapter(this, viewModel.fragments);
         binding.pagerOnBoard.setAdapter(adapter);
     }
 

@@ -1,14 +1,30 @@
 package com.david0926.nanumfest2020.screen.onboard;
 
 import androidx.databinding.BindingAdapter;
+import androidx.fragment.app.Fragment;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 import androidx.viewpager2.widget.ViewPager2;
 
+import com.david0926.nanumfest2020.R;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class OnBoardViewModel extends ViewModel {
+
+    public List<Fragment> fragments = new ArrayList<>();
+
+    public OnBoardViewModel() {
+        fragments.addAll(Arrays.asList(
+                OnBoardPagerFragment.newInstance(R.layout.fragment_on_board_1),
+                OnBoardPagerFragment.newInstance(R.layout.fragment_on_board_2),
+                OnBoardPagerFragment.newInstance(R.layout.fragment_on_board_3),
+                OnBoardPagerFragment.newInstance(R.layout.fragment_on_board_4)));
+    }
 
     @BindingAdapter("bindPagerCurrentItem")
     public static void bindPagerCurrentItem(ViewPager2 pager, int position) {

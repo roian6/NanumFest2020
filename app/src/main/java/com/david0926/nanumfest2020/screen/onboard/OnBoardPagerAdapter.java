@@ -5,40 +5,27 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import com.david0926.nanumfest2020.R;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class OnBoardPagerAdapter extends FragmentStateAdapter {
 
-    public OnBoardPagerAdapter(@NonNull FragmentActivity fragmentActivity) {
+    private ArrayList<Fragment> fragments = new ArrayList<>();
+
+    public OnBoardPagerAdapter(@NonNull FragmentActivity fragmentActivity, List<Fragment> list) {
         super(fragmentActivity);
+        fragments.addAll(list);
     }
 
     @NonNull
     @Override
     public Fragment createFragment(int position) {
-
-        int layoutId;
-        switch (position) {
-            case 0:
-                layoutId = R.layout.fragment_on_board_1;
-                break;
-            case 1:
-                layoutId = R.layout.fragment_on_board_2;
-                break;
-            case 2:
-                layoutId = R.layout.fragment_on_board_3;
-                break;
-            default:
-                layoutId = R.layout.fragment_on_board_4;
-                break;
-        }
-
-        return OnBoardPagerFragment.newInstance(layoutId);
+        return fragments.get(position);
     }
 
     @Override
     public int getItemCount() {
-        return 4;
+        return fragments.size();
     }
 }
